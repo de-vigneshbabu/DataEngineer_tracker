@@ -1,0 +1,2976 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2026 FAANG, Fintech &amp; AWS Data Engineer + Agentic AI Master Tracker</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace']
+          },
+          colors: {
+            slate: {
+              850: '#151e2e',
+              925: '#0b1120',
+              950: '#060a14'
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #060a14;
+      color: #f1f5f9;
+      overflow-x: hidden;
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.78);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(51, 65, 85, 0.6);
+    }
+    .glass-card-hover {
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(56, 189, 248, 0.5);
+      box-shadow: 0 8px 30px -10px rgba(14, 165, 233, 0.2);
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 9999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #475569;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-cyan-500/30 selection:text-cyan-200">
+
+  <!-- Top Notification Toast -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+  <!-- Header & Global Readiness Bar -->
+  <header class="sticky top-0 z-30 border-b border-slate-800/80 bg-slate-950/90 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <!-- Brand & Title -->
+        <div class="flex items-start sm:items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 via-blue-600 to-indigo-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 shrink-0">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+          </div>
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <h1 class="text-lg sm:text-xl font-bold tracking-tight text-white">DEngineer<span class="text-cyan-400">.2026</span></h1>
+              <span class="px-2 py-0.5 text-[11px] font-mono uppercase tracking-wider rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">FAANG · Fintech · AWS · Agentic AI</span>
+              <span class="px-2 py-0.5 text-[11px] font-mono rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">60-Day Jan Start Blueprint</span>
+            </div>
+            <p class="text-xs text-slate-400 mt-0.5">Unified Personal Command Center — Custom-built from your 3 Roadmap Blueprints &amp; 2026–2030 FAANG Playbook</p>
+          </div>
+        </div>
+
+        <!-- Live Stats & Role Lens -->
+        <div class="flex flex-wrap items-center gap-3 sm:gap-4">
+          <!-- Target Role Selector -->
+          <div class="flex items-center gap-2 bg-slate-900/90 border border-slate-800 rounded-lg px-2.5 py-1.5">
+            <label for="roleTrackSelect" class="text-xs font-medium text-slate-400 whitespace-nowrap">Target Lens:</label>
+            <select id="roleTrackSelect" class="bg-transparent text-xs font-semibold text-cyan-300 focus:outline-none cursor-pointer">
+              <option value="all" class="bg-slate-900 text-slate-100">Full 2026–2030 Master Stack (All Skills)</option>
+              <option value="aws_sprint" class="bg-slate-900 text-slate-100">8-Week AWS + Product Company Sprint (Jan Start)</option>
+              <option value="faang" class="bg-slate-900 text-slate-100">FAANG / Hyperscale (Netflix, Uber, Airbnb, Amazon)</option>
+              <option value="fintech" class="bg-slate-900 text-slate-100">Tier-1 Fintech (Stripe, Robinhood, Citadel, Plaid)</option>
+              <option value="agentic" class="bg-slate-900 text-slate-100">AI-Native &amp; Agentic Data Platform Engineer</option>
+            </select>
+          </div>
+
+          <!-- Readiness Meter -->
+          <div class="flex items-center gap-3 bg-slate-900/90 border border-slate-800 rounded-lg px-3 py-1.5">
+            <div>
+              <div class="flex items-center justify-between gap-3 text-xs">
+                <span class="text-slate-400 font-medium">Readiness</span>
+                <span id="headerPercentText" class="font-mono font-bold text-emerald-400">0%</span>
+              </div>
+              <div class="w-28 sm:w-36 h-1.5 bg-slate-800 rounded-full overflow-hidden mt-1">
+                <div id="headerProgressBar" class="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-emerald-400 transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+            <div class="border-l border-slate-800 pl-3 text-right">
+              <div class="text-[10px] uppercase tracking-wider font-mono text-slate-400">XP / Level</div>
+              <div id="headerRankText" class="text-xs font-bold text-amber-300">0 XP · L1 Novice</div>
+            </div>
+          </div>
+
+          <!-- Utility Buttons -->
+          <div class="flex items-center gap-1.5">
+            <button id="openAddSkillModalBtn" type="button" class="px-2.5 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/30 transition flex items-center gap-1">
+              <span>+ Skill</span>
+            </button>
+            <button id="openDataModalBtn" type="button" class="px-2.5 py-1.5 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 transition">
+              Backup / Restore
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Primary Navigation Tabs -->
+      <nav class="flex items-center gap-1 sm:gap-2 mt-3 pt-2 border-t border-slate-800/60 overflow-x-auto custom-scrollbar" aria-label="Main Navigation">
+        <button type="button" data-tab="sprint" class="nav-tab-btn px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap flex items-center gap-2 bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+          <span>1. 60-Day / 8-Week Sprint</span>
+          <span id="navBadgeSprint" class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-cyan-500/20 text-cyan-200">0/12</span>
+        </button>
+        <button type="button" data-tab="roadmap" class="nav-tab-btn px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-transparent">
+          <span>2. Deep Skill Tracker</span>
+          <span id="navBadgeSkills" class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-300">0/32</span>
+        </button>
+        <button type="button" data-tab="agentic" class="nav-tab-btn px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-transparent">
+          <span>3. Agentic AI &amp; Prompt Vault</span>
+          <span class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">MCP + Skills</span>
+        </button>
+        <button type="button" data-tab="architectures" class="nav-tab-btn px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-transparent">
+          <span>4. FAANG, Fintech &amp; 2030 Matrix</span>
+        </button>
+        <button type="button" data-tab="projects" class="nav-tab-btn px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-transparent">
+          <span>5. Projects &amp; Shadowing Hub</span>
+          <span id="navBadgeProjects" class="px-1.5 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-300">0/20</span>
+        </button>
+        <button type="button" data-tab="analytics" class="nav-tab-btn px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-transparent">
+          <span>6. Readiness Analytics</span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ==================== TAB 1: 60-DAY / 8-WEEK SPRINT & DAY 1 SETUP ==================== -->
+    <section id="tab-sprint" class="tab-panel space-y-6">
+      <!-- Philosophy & Daily Rhythm Banner (From Uploaded PDF + MD Blueprint) -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6 border-l-4 border-l-cyan-400">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-7 space-y-2">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="px-2.5 py-0.5 text-[11px] font-mono uppercase tracking-wider rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">Your 2026 Reality Check</span>
+              <span class="text-xs text-slate-400">Target: January Interviews · ZenBook 32GB Local Cluster Ready</span>
+            </div>
+            <h2 class="text-lg sm:text-xl font-bold text-white">"Coding is not dead; boilerplate memorization is."</h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              AI tools write boilerplate fast now, so product companies (Amazon, Uber, Stripe, Flipkart, Swiggy, Netflix) have raised the bar on what they test: <strong>data modeling judgment, debugging real pipeline failures, system bottlenecks (CPU, RAM, Disk I/O, Shuffle/Skew), and cost/scale trade-offs</strong>. Build AI fluency into every phase rather than treating it as a shortcut.
+            </p>
+          </div>
+          <!-- Daily 6-Hour Deep Work Rhythm + Burnout Guardrail -->
+          <div class="lg:col-span-5 bg-slate-900/90 border border-slate-800 rounded-xl p-4 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase text-cyan-400 font-semibold">Daily Study Rhythm (6–8 hrs/day)</span>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-amber-500/15 text-amber-300 border border-amber-500/30">1 Lighter Day / Wk</span>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center">
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
+                <div class="text-base font-bold font-mono text-cyan-300">3 hrs</div>
+                <div class="text-[11px] text-slate-400">New Core Concept</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
+                <div class="text-base font-bold font-mono text-emerald-300">2 hrs</div>
+                <div class="text-[11px] text-slate-400">Hands-On / LeetCode</div>
+              </div>
+              <div class="p-2.5 rounded-lg bg-slate-950 border border-slate-800">
+                <div class="text-base font-bold font-mono text-purple-300">1 hr</div>
+                <div class="text-[11px] text-slate-400">Shadow GitHub Code</div>
+              </div>
+            </div>
+            <p class="text-[11px] text-slate-400 leading-snug">
+              <strong class="text-amber-300">Anti-Copy-Paste Rule:</strong> After solving SQL/Python problems, ask AI for 2–3 variations and why each works—then type the code yourself from memory.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Day 1 (First 3 Hours) Quick-Start Checklist -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">Immediate Action · Day 1 (First 3 Hours)</span>
+            <h3 class="text-base sm:text-lg font-bold text-white">Local Engineering Environment Setup (32GB RAM Workstation)</h3>
+          </div>
+          <span id="day1ProgressBadge" class="text-xs font-mono text-emerald-300 bg-emerald-500/15 px-3 py-1 rounded-full border border-emerald-500/30">0 / 4 Completed</span>
+        </div>
+        <div id="day1ChecklistGrid" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+      </div>
+
+      <!-- 8-Week (Weeks 1 to 8) Master Sprint Tracker -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">8-Week Product-Company &amp; AWS Sprint</span>
+            <h3 class="text-base sm:text-lg font-bold text-white">Week-by-Week Execution Checklist (Check off as you complete each week)</h3>
+          </div>
+          <span id="weeklySprintBadge" class="text-xs font-mono text-cyan-300 bg-cyan-500/15 px-3 py-1 rounded-full border border-cyan-500/30">0 / 8 Weeks Done</span>
+        </div>
+        <div id="weeklySprintGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 2: INTERACTIVE DEEP SKILL ROADMAP ==================== -->
+    <section id="tab-roadmap" class="tab-panel hidden space-y-6">
+      <!-- Beginner Orientation Banner -->
+      <div class="glass-card rounded-2xl p-4 sm:p-5 border-l-4 border-l-cyan-400">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-1">
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">6-Phase Technical Mastery Matrix</span>
+              <span class="text-xs text-slate-500">•</span>
+              <span id="activeLensDescription" class="text-xs text-slate-300">Showing full 6-phase progression from zero experience to FAANG/Fintech, AWS &amp; Agentic AI readiness.</span>
+            </div>
+            <h2 class="text-base sm:text-lg font-bold text-white">Track your progression from CS50P &amp; Window Functions to Iceberg, Flink &amp; MCP Agents</h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              Use the status toggles (<strong>Not Started → Learning → Built PoC → Mastered</strong>) and granular sub-skill checkboxes on each card below. Add personal notes or your GitHub commit links to earn bonus XP.
+            </p>
+          </div>
+          <!-- Quick Stage Legend -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 shrink-0">
+            <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800 text-center">
+              <div id="statNotStarted" class="text-base font-bold font-mono text-slate-400">0</div>
+              <div class="text-[11px] text-slate-400">Not Started</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-center">
+              <div id="statLearning" class="text-base font-bold font-mono text-amber-300">0</div>
+              <div class="text-[11px] text-amber-200/80">Learning (35%)</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-center">
+              <div id="statBuilt" class="text-base font-bold font-mono text-cyan-300">0</div>
+              <div class="text-[11px] text-cyan-200/80">Built PoC (75%)</div>
+            </div>
+            <div class="p-2.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center">
+              <div id="statMastered" class="text-base font-bold font-mono text-emerald-300">0</div>
+              <div class="text-[11px] text-emerald-200/80">Mastered (100%)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phase Progress Cards (Clickable Filters) -->
+      <div id="phaseSummaryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3"></div>
+
+      <!-- Search & Filter Controls -->
+      <div class="glass-card rounded-xl p-3.5 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+        <div class="relative flex-1">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+          <input id="skillSearchInput" type="text" placeholder="Search skills, tools (e.g. AWS Glue, Redshift, Iceberg, Flink, MCP, LangGraph, Spark, Debezium)..." class="w-full bg-slate-900/90 border border-slate-700/80 rounded-lg pl-10 pr-4 py-2 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400" />
+        </div>
+        <div class="flex flex-wrap items-center gap-2">
+          <select id="phaseFilterSelect" aria-label="Filter by Phase" class="bg-slate-900 border border-slate-700/80 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-400">
+            <option value="all">All 6 Roadmap Phases</option>
+            <option value="p1">Phase 1: Core Foundations (Python, SQL, Modeling)</option>
+            <option value="p2">Phase 2: AWS Cloud Stack &amp; Lakehouse Storage</option>
+            <option value="p3">Phase 3: Distributed Compute &amp; Streaming</option>
+            <option value="p4">Phase 4: DataOps, Contracts &amp; FinOps</option>
+            <option value="p5">Phase 5: Agentic AI in Data Engineering</option>
+            <option value="p6">Phase 6: FAANG &amp; Fintech System Design</option>
+          </select>
+          <select id="statusFilterSelect" aria-label="Filter by Status" class="bg-slate-900 border border-slate-700/80 rounded-lg px-3 py-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-400">
+            <option value="all">All Statuses</option>
+            <option value="0">Not Started</option>
+            <option value="1">Learning</option>
+            <option value="2">Built PoC</option>
+            <option value="3">Mastered</option>
+          </select>
+          <button id="resetFiltersBtn" type="button" class="px-3 py-2 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition">
+            Reset Filters
+          </button>
+        </div>
+      </div>
+
+      <!-- Skills List Container -->
+      <div id="skillsContainer" class="space-y-4"></div>
+    </section>
+
+    <!-- ==================== TAB 3: AGENTIC AI & PROMPT VAULT ==================== -->
+    <section id="tab-agentic" class="tab-panel hidden space-y-6">
+      <div class="glass-card rounded-2xl p-5 sm:p-6 border-l-4 border-l-purple-400">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+          <div class="space-y-2 max-w-3xl">
+            <span class="px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">2026 AI Fluency &amp; Agentic Stack</span>
+            <h2 class="text-xl sm:text-2xl font-bold text-white">Prompting, MCP, Reusable Agent "Skills", and Autonomous Pipelines</h2>
+            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              In 2026, AI in data engineering spans <strong>three tiers</strong>: (1) AI-assisted code generation, (2) workflow automation, and (3) semi-autonomous pipeline management via <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline hover:text-purple-200">Model Context Protocol (MCP)</a> and reusable agent <strong>Skills</strong>. Meanwhile, 71% of practitioners name silent hallucinated outputs as their #1 risk (<a href="https://resources.rework.com/tools/ai-agents/best-ai-agents-for-data-engineering-2026" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline hover:text-purple-200">dbt Labs 2026 Report</a>)—making validation (<a href="https://greatexpectations.io/" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline">Great Expectations</a> / <a href="https://soda.io/product/lineage" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline">Soda</a>) more important than ever.
+            </p>
+          </div>
+          <div class="bg-slate-900/90 border border-purple-500/30 rounded-xl p-4 shrink-0 lg:w-72">
+            <div class="text-xs font-mono uppercase text-purple-300">Agentic Readiness Checklist</div>
+            <div class="flex items-baseline justify-between mt-1">
+              <span id="agenticChecklistScore" class="text-2xl font-bold font-mono text-white">0 / 8</span>
+              <span class="text-xs text-slate-400">Production Patterns</span>
+            </div>
+            <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden mt-2">
+              <div id="agenticChecklistBar" class="h-full bg-gradient-to-r from-purple-500 to-cyan-400 transition-all duration-300" style="width: 0%"></div>
+            </div>
+            <p class="text-[11px] text-slate-400 mt-2">Check off the 8 architectural guardrails below as you master them.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive 5 Pillars of Agentic Data Engineering -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-5 space-y-2.5" id="agenticPillarButtons"></div>
+        <div class="lg:col-span-7 glass-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between" id="agenticPillarDetail"></div>
+      </div>
+
+      <!-- Notable 2026 AI Agents Ecosystem Matrix (From Uploaded PDF Page 5-6) -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <h3 class="text-base sm:text-lg font-bold text-white mb-1">2026 Enterprise Data Engineering AI Agents &amp; Frameworks Landscape</h3>
+        <p class="text-xs text-slate-400 mb-4">Know these 4 categories cold so you can discuss trade-offs (ecosystem lock-in vs. vendor-neutral MCP) in interviews.</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
+            <span class="text-[10px] font-mono uppercase text-cyan-400 font-semibold">1. Platform-Native Agents</span>
+            <div class="text-sm font-bold text-white">Genie Code, Cortex ("CoCo") &amp; BigQuery Agent</div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              <strong>Databricks Genie Code</strong> (now in free tier), <strong>Snowflake Cortex Code ("CoCo")</strong>, and <strong>Google BigQuery DE Agent</strong> offer tight governance integration inside their cloud ecosystems (<a href="https://resources.rework.com/tools/ai-agents/best-ai-agents-for-data-engineering-2026" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">2026 Agent Comparison</a>).
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
+            <span class="text-[10px] font-mono uppercase text-emerald-400 font-semibold">2. Vendor-Neutral MCP Tooling</span>
+            <div class="text-sm font-bold text-white">Integrate.io MCP, Qdrant &amp; Milvus MCP</div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              <a href="https://www.integrate.io/blog/ai-agents-data-engineering-teams/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">Integrate.io’s MCP Server</a> and database MCP servers let any MCP-compatible assistant inspect schemas, build, and run pipelines without locking into one cloud or LLM vendor.
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
+            <span class="text-[10px] font-mono uppercase text-purple-400 font-semibold">3. Multi-Agent Frameworks</span>
+            <div class="text-sm font-bold text-white">LangGraph &amp; CrewAI</div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Coordinate specialized agents (e.g., Schema Inspector + SQL Generator + Great Expectations Validator) with deterministic state graphs and human-in-the-loop checkpoints (<a href="https://www.youtube.com/watch?v=rJKBnHYicQA" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline">LangGraph + MCP</a>).
+            </p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
+            <span class="text-[10px] font-mono uppercase text-amber-400 font-semibold">4. AI-Native Orchestration</span>
+            <div class="text-sm font-bold text-white">Apache Airflow AI &amp; Mage AI</div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Airflow remains the industry backbone (now enhanced with AI authoring &amp; log triage), while tools like Mage AI and Coalesce Copilot provide AI-native pipeline drafting.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy-Paste Data Engineering Prompt & "Skills" Vault (From Uploaded Blueprint + PDF) -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold">From Your Master Blueprint</span>
+            <h3 class="text-base sm:text-lg font-bold text-white">Interactive Data Engineer Prompt &amp; Reusable "Skill" Vault</h3>
+            <p class="text-xs text-slate-400">Click "Copy Prompt" on any template below to use during your daily coding, OOM debugging, or mock interviews.</p>
+          </div>
+        </div>
+        <div id="promptVaultGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-4"></div>
+      </div>
+
+      <!-- 8-Point Agent-Ready Pipeline Audit Checklist -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <div>
+            <h3 class="text-base sm:text-lg font-bold text-white">The "Agent-Ready Pipeline" Implementation Checklist</h3>
+            <p class="text-xs text-slate-400">Tick each engineering control once you know how to implement it in a real project.</p>
+          </div>
+          <a href="https://atlan.com/know/ai-agents-for-data-engineering/" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-cyan-400 hover:text-cyan-300 underline">Read Atlan 2026 AI Agent Reliability Guide ↗</a>
+        </div>
+        <div id="agenticAuditGrid" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 4: FAANG, FINTECH & 2027-2030 MATRIX ==================== -->
+    <section id="tab-architectures" class="tab-panel hidden space-y-6">
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">Production System Design Reference</span>
+            <h2 class="text-xl font-bold text-white mt-0.5">How FAANG, Tier-1 Fintech &amp; AWS Architect Data Platforms in 2026</h2>
+            <p class="text-xs sm:text-sm text-slate-300 mt-1">Select a reference architecture below and click any pipeline stage to inspect interview questions, failure modes, and tuning secrets.</p>
+          </div>
+          <div class="flex flex-wrap gap-2" id="blueprintSelectorBtns">
+            <button type="button" data-blueprint="netflix" class="blueprint-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 transition">
+              Netflix / Uber Hyperscale Lakehouse
+            </button>
+            <button type="button" data-blueprint="fintech" class="blueprint-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition">
+              Stripe / Fintech Zero-Loss Ledger &amp; Fraud
+            </button>
+            <button type="button" data-blueprint="aws_medallion" class="blueprint-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition">
+              AWS Cloud Lakehouse (S3, Glue, Redshift, Athena)
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Pipeline Diagram -->
+        <div id="blueprintNodesContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 mb-5"></div>
+
+        <!-- Selected Node Deep-Dive Panel -->
+        <div id="blueprintNodeInspector" class="rounded-xl bg-slate-900/95 border border-slate-700/80 p-4 sm:p-5"></div>
+      </div>
+
+      <!-- 2027-2030 Future Horizon & Sustainability Matrix (From Uploaded DOCX) -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6 border-l-4 border-l-emerald-400">
+        <div class="mb-4">
+          <span class="text-xs font-mono uppercase tracking-wider text-emerald-400 font-semibold">2027–2030 Future Horizon (From Your FAANG Playbook)</span>
+          <h3 class="text-base sm:text-lg font-bold text-white mt-0.5">Next-Gen Sustainability &amp; Autonomous Architecture Matrix</h3>
+          <p class="text-xs text-slate-400">Over the next several years, data engineering shifts from manual transformation plumbing to governing autonomous, carbon- and compute-efficient systems.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
+            <span class="text-[10px] font-mono uppercase text-purple-300 px-2 py-0.5 rounded bg-purple-500/15 border border-purple-500/30">Pillar 1 · Autonomy</span>
+            <h4 class="text-sm font-bold text-white pt-1">Autonomous Self-Healing Pipelines</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">AI Agentic Orchestration that diagnoses schema drift, adjusts memory parameters, backfills missing state, and refactors slow SQL autonomously.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
+            <span class="text-[10px] font-mono uppercase text-emerald-300 px-2 py-0.5 rounded bg-emerald-500/15 border border-emerald-500/30">Pillar 2 · Green FinOps</span>
+            <h4 class="text-sm font-bold text-white pt-1">Green Computing &amp; Carbon-Aware Ops</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">Replacing heavy JVM clusters with vectorized kernels (<a href="https://duckdb.org/docs/current/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">DuckDB</a>, Polars, <a href="https://techpreneurr.medium.com/can-rust-replace-java-in-the-spark-flink-world-a-data-engineers-view-in-2026-ae527d980dcb" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">Rust/Arrow</a>) to slash CPU cycles by 60%+ and scheduling batch jobs in low-carbon windows.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
+            <span class="text-[10px] font-mono uppercase text-cyan-300 px-2 py-0.5 rounded bg-cyan-500/15 border border-cyan-500/30">Pillar 3 · Multimodal</span>
+            <h4 class="text-sm font-bold text-white pt-1">AI-Native Vector &amp; Multimodal Fabric</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">Treating audio, video, PDFs, sensor data, and embeddings (<a href="https://milvus.io/docs/milvus_for_agents.md" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">Milvus</a>, <a href="https://github.com/qdrant/mcp-server-qdrant" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">Qdrant</a>, LanceDB, pgvector) with transactional rigor and lineage.</p>
+          </div>
+          <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 space-y-1.5">
+            <span class="text-[10px] font-mono uppercase text-amber-300 px-2 py-0.5 rounded bg-amber-500/15 border border-amber-500/30">Pillar 4 · Zero-Copy</span>
+            <h4 class="text-sm font-bold text-white pt-1">Zero-Copy Dynamic Sharing</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">Leveraging open table metadata (<a href="https://iceberg.apache.org/" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline">Apache Iceberg</a>, Delta Lake, Hudi) for universal cross-cloud queries without physical copying or egress penalties.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Table: Big Tech (FAANG) vs Big Fintech -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6 overflow-x-auto">
+        <h3 class="text-base sm:text-lg font-bold text-white mb-1">Architectural Trade-offs: Hyperscale Product (FAANG) vs. Tier-1 Fintech</h3>
+        <p class="text-xs text-slate-400 mb-4">Use this table during system design interviews to justify why you chose a specific engine or consistency guarantee.</p>
+        <table class="w-full text-left border-collapse text-xs sm:text-sm">
+          <thead>
+            <tr class="border-b border-slate-700 text-slate-300 bg-slate-900/80">
+              <th class="py-3 px-4 font-semibold">Architectural Dimension</th>
+              <th class="py-3 px-4 font-semibold text-cyan-300">FAANG / Consumer Hyperscale (Netflix, Meta, Uber)</th>
+              <th class="py-3 px-4 font-semibold text-emerald-300">Tier-1 Fintech &amp; Quant (Stripe, Robinhood, Plaid)</th>
+              <th class="py-3 px-4 font-semibold text-purple-300">2026 Cutting-Edge Standard</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-800 text-slate-300">
+            <tr class="hover:bg-slate-900/40">
+              <td class="py-3 px-4 font-medium text-white">Primary Optimization Goal</td>
+              <td class="py-3 px-4">Petabyte-scale throughput, Partition evolution, Compute FinOps efficiency (<a href="https://factorhouse.io/resources/iceberg/use-cases/netflix/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">Netflix Iceberg Case</a>)</td>
+              <td class="py-3 px-4">Zero data loss, Exact-once semantics, Double-entry ledger auditability, Sub-second fraud scoring</td>
+              <td class="py-3 px-4">Unified batch + streaming over open table formats (<a href="https://iceberg.apache.org/" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline">Apache Iceberg</a>)</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40">
+              <td class="py-3 px-4 font-medium text-white">Ingestion &amp; Change Capture</td>
+              <td class="py-3 px-4">High-volume telemetry &amp; microservice events via <a href="https://factorhouse.io/articles/netflix-kafka-architecture/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">Apache Kafka</a> (700B+ daily events)</td>
+              <td class="py-3 px-4">Transactional WAL log tailing via <a href="https://debezium.io/documentation/reference/stable/index.html" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">Debezium CDC</a> / SpinalTap with strict schema registries (Protobuf/Avro)</td>
+              <td class="py-3 px-4">Zero-copy Arrow streams + schema contracts enforced at producer edge</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40">
+              <td class="py-3 px-4 font-medium text-white">Stream Processing Engine</td>
+              <td class="py-3 px-4"><a href="https://flink.apache.org/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">Apache Flink</a> for stateful session windows &amp; real-time graph ingestion</td>
+              <td class="py-3 px-4"><a href="https://flink.apache.org/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">Apache Flink</a> with RocksDB state backend, 2-phase commit sinks, and late-event side outputs</td>
+              <td class="py-3 px-4">Flink Table/DataStream API writing directly to Iceberg MoR (Merge-on-Read)</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40">
+              <td class="py-3 px-4 font-medium text-white">Batch Compute &amp; Acceleration</td>
+              <td class="py-3 px-4"><a href="https://spark.apache.org/docs/latest/" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">Apache Spark 4.x</a> (Catalyst, Tungsten, AQE) on Kubernetes + <a href="https://trino.io/docs/current/index.html" target="_blank" rel="noopener noreferrer" class="text-cyan-400 underline">Trino</a> interactive federation</td>
+              <td class="py-3 px-4">Spark for T+1 regulatory reconciliation + <a href="https://duckdb.org/docs/current/" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">DuckDB</a> / Polars for single-node vectorized backtests</td>
+              <td class="py-3 px-4">Rust-based native vectorized engines (<a href="https://techpreneurr.medium.com/can-rust-replace-java-in-the-spark-flink-world-a-data-engineers-view-in-2026-ae527d980dcb" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline">Apache Arrow / DataFusion / Polars</a>)</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40">
+              <td class="py-3 px-4 font-medium text-white">Real-Time User-Facing OLAP</td>
+              <td class="py-3 px-4">Apache Pinot / Druid / StarRocks for sub-100ms product analytics</td>
+              <td class="py-3 px-4"><a href="https://clickhouse.com/blog/clickhouse-airflow-provider" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">ClickHouse</a> for real-time risk dashboards, anomaly detection, and trade tick analytics</td>
+              <td class="py-3 px-4">Real-time OLAP querying Lakehouse tables directly with tiered caching</td>
+            </tr>
+            <tr class="hover:bg-slate-900/40">
+              <td class="py-3 px-4 font-medium text-white">Agentic AI Integration</td>
+              <td class="py-3 px-4">Autonomous root-cause debugging for failed DAGs &amp; automated data discovery across 50k+ tables</td>
+              <td class="py-3 px-4">Read-only <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro" target="_blank" rel="noopener noreferrer" class="text-emerald-400 underline">MCP servers</a> with PII masking, semantic SQL guardrails, and automated anomaly triage</td>
+              <td class="py-3 px-4">Multi-agent orchestration (<a href="https://www.youtube.com/watch?v=rJKBnHYicQA" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline">LangGraph + MCP</a>) + <a href="https://openlineage.io/docs/integrations/great-expectations/" target="_blank" rel="noopener noreferrer" class="text-purple-300 underline">OpenLineage</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 5: CAPSTONE PROJECTS & SHADOWING DIRECTORY ==================== -->
+    <section id="tab-projects" class="tab-panel hidden space-y-6">
+      <div class="glass-card rounded-2xl p-5 sm:p-6 border-l-4 border-l-emerald-400">
+        <h2 class="text-xl font-bold text-white">4 Portfolio-Grade Capstone Projects (From Your Blueprints + Agentic AI Differentiator)</h2>
+        <p class="text-xs sm:text-sm text-slate-300 mt-1">
+          Most self-taught candidates build a Jupyter notebook cleaning a CSV. Product-company interviewers look for <strong>orchestration, cloud deployment, data quality checks, and a specific business problem</strong>. Track all 20 milestones across your 4 projects below.
+        </p>
+      </div>
+
+      <div id="projectsGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
+
+      <!-- GitHub Repositories to Shadow & Industry Leaders Directory (From Uploaded Docs) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <!-- GitHub Shadowing Table -->
+        <div class="lg:col-span-7 glass-card rounded-2xl p-5 sm:p-6">
+          <span class="text-xs font-mono uppercase tracking-wider text-cyan-400 font-semibold">Daily 1-Hour Code Reading Habit</span>
+          <h3 class="text-base sm:text-lg font-bold text-white mt-0.5 mb-3">Production GitHub Repositories to Shadow (Don't Just Star!)</h3>
+          <div class="space-y-2.5">
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <a href="https://github.com/DataTalksClub/data-engineering-zoomcamp" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-cyan-300 hover:underline">DataTalksClub / data-engineering-zoomcamp ↗</a>
+                <p class="text-xs text-slate-400 mt-0.5">Free 9-week curriculum. Shadow their <code class="text-slate-200">docker-compose.yaml</code>, Terraform configs, Kestra/Airflow, dbt &amp; Spark modules.</p>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 shrink-0 self-start sm:self-center">Gold Standard</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <a href="https://github.com/dataexpert-io/data-engineer-handbook" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-cyan-300 hover:underline">DataExpert-io / data-engineer-handbook ↗</a>
+                <p class="text-xs text-slate-400 mt-0.5">Curated by Zach Wilson (ex-Netflix/Airbnb Staff DE). Study FAANG dimensional modeling, SCD Type 2, and big data patterns.</p>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 shrink-0 self-start sm:self-center">FAANG Modeling</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <a href="https://github.com/danielbeach/data-engineering-practice" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-cyan-300 hover:underline">danielbeach / data-engineering-practice ↗</a>
+                <p class="text-xs text-slate-400 mt-0.5">Hands-on problem-based exercises for Python, Parquet, Postgres, PySpark, and dirty data cleansing with best practices.</p>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-amber-500/15 text-amber-300 border border-amber-500/30 shrink-0 self-start sm:self-center">Hands-On Labs</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <a href="https://github.com/josephmachado/beginner_de_project" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-cyan-300 hover:underline">josephmachado / beginner_de_project ↗</a>
+                <p class="text-xs text-slate-400 mt-0.5">End-to-end blueprint showing production software engineering for data: <code class="text-slate-200">pytest</code> unit tests, CI/CD, logging &amp; quality checks.</p>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-purple-500/15 text-purple-300 border border-purple-500/30 shrink-0 self-start sm:self-center">SWE Rigor</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+              <div>
+                <a href="https://github.com/ABZ-Aaron/Reddit-API-Pipeline" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-bold text-cyan-300 hover:underline">ABZ-Aaron / Reddit-API-Pipeline ↗</a>
+                <p class="text-xs text-slate-400 mt-0.5">Model portfolio repo: Reddit API → AWS S3 → Redshift → dbt → Airflow in Docker + Terraform + architecture README.</p>
+              </div>
+              <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 shrink-0 self-start sm:self-center">AWS Portfolio</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <a href="https://github.com/igorbarinov/awesome-data-engineering" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-900/85 border border-slate-800 hover:border-cyan-500/40 transition block">
+                <div class="text-xs font-bold text-cyan-300">igorbarinov / awesome-data-engineering ↗</div>
+                <p class="text-[11px] text-slate-400 mt-0.5">Curated ecosystem map of DE frameworks</p>
+              </a>
+              <a href="https://github.com/adilkhash/Data-Engineering-HowTo" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-slate-900/85 border border-slate-800 hover:border-cyan-500/40 transition block">
+                <div class="text-xs font-bold text-cyan-300">adilkhash / Data-Engineering-HowTo ↗</div>
+                <p class="text-[11px] text-slate-400 mt-0.5">Beginner-friendly path through DE fundamentals</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- YouTube Channels & Architects to Follow -->
+        <div class="lg:col-span-5 glass-card rounded-2xl p-5 sm:p-6 space-y-4">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold">High-Signal Voices &amp; Channels</span>
+            <h3 class="text-base sm:text-lg font-bold text-white mt-0.5">Architects &amp; YouTube Educators</h3>
+          </div>
+          <div class="space-y-2.5 text-xs">
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800">
+              <div class="font-bold text-white">Zach Wilson (DataExpert.io · ex-Netflix, Airbnb, Meta)</div>
+              <p class="text-slate-400 mt-0.5">Watch: <em>Data Modeling for Big Data</em> &amp; <em>How Spark Works Under the Hood</em>.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800">
+              <div class="font-bold text-white">Benjamin Rogojan (Seattle Data Guy · ex-Meta)</div>
+              <p class="text-slate-400 mt-0.5">Watch: <em>Common Data Pipeline Patterns in the Real World</em> &amp; <em>How DEs Write SQL vs Analysts</em>.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800">
+              <div class="font-bold text-white">Darshil Parmar &amp; Alexey Grigorev (DataTalksClub)</div>
+              <p class="text-slate-400 mt-0.5">Watch: <em>Python for Data Engineers</em>, <em>Data Engineering on AWS</em>, and the <em>DE Zoomcamp Playlist</em>.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800">
+              <div class="font-bold text-white">Marc Lamberti (Airflow) &amp; Hussein Nasser (DB Internals)</div>
+              <p class="text-slate-400 mt-0.5">Watch: <em>Airflow DAG Best Practices</em> &amp; <em>Postgres Architecture, B-Tree Indexing &amp; ACID</em>.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/85 border border-slate-800">
+              <div class="font-bold text-white">Foundational Pioneers to Read</div>
+              <p class="text-slate-400 mt-0.5">
+                <strong>Maxime Beauchemin</strong> (creator of Airflow/Superset), <strong>Joe Reis &amp; Matt Housley</strong> (<em>Fundamentals of Data Engineering</em>), <strong>Zhamak Dehghani</strong> (Data Mesh), <strong>Jay Kreps</strong> (Kafka), <strong>Daniel Beach</strong> (Data Engineering Central).
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== TAB 6: ANALYTICS & STUDY PLANNER ==================== -->
+    <section id="tab-analytics" class="tab-panel hidden space-y-6">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Radar Chart Card -->
+        <div class="glass-card rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h3 class="text-base font-bold text-white">Domain Mastery Radar</h3>
+              <p class="text-xs text-slate-400">Real-time competency across all 6 Data Engineering pillars</p>
+            </div>
+            <span class="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-md border border-cyan-500/20">Target: 80%+ per pillar</span>
+          </div>
+          <div class="relative h-72 w-full">
+            <canvas id="domainRadarChart"></canvas>
+          </div>
+        </div>
+
+        <!-- Doughnut Chart Card -->
+        <div class="glass-card rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <h3 class="text-base font-bold text-white">Skill Progression Distribution</h3>
+              <p class="text-xs text-slate-400">Breakdown of 32+ core &amp; custom skills by current mastery stage</p>
+            </div>
+            <span id="analyticsTotalHoursBadge" class="text-xs font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">0 hrs remaining</span>
+          </div>
+          <div class="relative h-72 w-full">
+            <canvas id="statusDoughnutChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Study Velocity Calculator -->
+      <div class="glass-card rounded-2xl p-5 sm:p-6">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="space-y-2 max-w-xl">
+            <span class="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold">Interactive Study Pace Simulator</span>
+            <h3 class="text-lg font-bold text-white">Calculate Your Job-Ready Target Date</h3>
+            <p class="text-xs sm:text-sm text-slate-300">
+              Adjust your weekly focused study &amp; project-building hours below (your PDF roadmap uses ~45–50 hrs/week for an 8-week sprint to January, or 15–25 hrs/week for a sustainable 4–6 month pace).
+            </p>
+            <div class="pt-3">
+              <div class="flex items-center justify-between text-xs sm:text-sm font-medium mb-2">
+                <span class="text-slate-300">Weekly Deep-Work Commitment:</span>
+                <span id="studyHoursLabel" class="font-mono font-bold text-cyan-300 text-base">35 hrs / week</span>
+              </div>
+              <input id="studyHoursSlider" type="range" min="5" max="55" step="1" value="35" class="w-full accent-cyan-400 cursor-pointer" />
+              <div class="flex justify-between text-[11px] font-mono text-slate-500 mt-1">
+                <span>10 hrs/wk (Part-time)</span>
+                <span>25 hrs/wk (Balanced)</span>
+                <span>40 hrs/wk (Full-Time Sprint)</span>
+                <span>55 hrs/wk (Intensive)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 shrink-0 lg:w-1/2">
+            <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div class="text-xs text-slate-400">Remaining Effort</div>
+              <div id="calcRemainingHours" class="text-2xl font-bold font-mono text-white mt-1">0 hrs</div>
+              <div class="text-[11px] text-slate-500 mt-1">Weighted by current Lens</div>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800">
+              <div class="text-xs text-slate-400">Estimated Weeks</div>
+              <div id="calcWeeksLeft" class="text-2xl font-bold font-mono text-cyan-400 mt-1">0 wks</div>
+              <div class="text-[11px] text-slate-500 mt-1">To 100% roadmap mastery</div>
+            </div>
+            <div class="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+              <div class="text-xs text-emerald-300">Projected Job-Ready Date</div>
+              <div id="calcTargetDate" class="text-xl font-bold font-mono text-emerald-300 mt-1">—</div>
+              <div class="text-[11px] text-emerald-200/70 mt-1">Target: Jan 2027 Loops</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODAL 1: ADD CUSTOM SKILL ==================== -->
+  <div id="addSkillModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card rounded-2xl max-w-lg w-full p-6 border border-slate-700 shadow-2xl">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <h3 class="text-base font-bold text-white">Add Custom Data Engineering Skill</h3>
+        <button id="closeAddSkillModalBtn" type="button" class="text-slate-400 hover:text-white text-sm font-mono px-2 py-1">✕</button>
+      </div>
+      <form id="addSkillForm" class="space-y-4 mt-4">
+        <div>
+          <label for="customSkillTitle" class="block text-xs font-medium text-slate-300 mb-1">Skill / Technology Name *</label>
+          <input id="customSkillTitle" type="text" required placeholder="e.g., Apache Hudi, Temporal, Ray, LanceDB..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs sm:text-sm text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label for="customSkillPhase" class="block text-xs font-medium text-slate-300 mb-1">Roadmap Phase</label>
+            <select id="customSkillPhase" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400">
+              <option value="p1">Phase 1: Core Foundations</option>
+              <option value="p2">Phase 2: AWS &amp; Modern Lakehouse Storage</option>
+              <option value="p3">Phase 3: Distributed Compute &amp; Streaming</option>
+              <option value="p4">Phase 4: DataOps, Contracts &amp; FinOps</option>
+              <option value="p5">Phase 5: Agentic AI in Data Engineering</option>
+              <option value="p6">Phase 6: FAANG &amp; Fintech System Design</option>
+            </select>
+          </div>
+          <div>
+            <label for="customSkillHours" class="block text-xs font-medium text-slate-300 mb-1">Estimated Hours</label>
+            <input id="customSkillHours" type="number" min="2" max="120" value="15" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400" />
+          </div>
+        </div>
+        <div>
+          <label for="customSkillWhy" class="block text-xs font-medium text-slate-300 mb-1">Why Product Companies Care / Milestone</label>
+          <textarea id="customSkillWhy" rows="2" placeholder="Describe how you will use or prove this skill..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400"></textarea>
+        </div>
+        <div>
+          <label for="customSkillUrl" class="block text-xs font-medium text-slate-300 mb-1">Reference Documentation URL (Optional)</label>
+          <input id="customSkillUrl" type="url" placeholder="https://..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cyan-400" />
+        </div>
+        <div class="flex items-center justify-end gap-2 pt-2">
+          <button id="cancelAddSkillBtn" type="button" class="px-4 py-2 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-300">Cancel</button>
+          <button type="submit" class="px-4 py-2 rounded-lg text-xs font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950">Add to Tracker</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL 2: BACKUP / RESTORE / RESET ==================== -->
+  <div id="dataModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card rounded-2xl max-w-lg w-full p-6 border border-slate-700 shadow-2xl space-y-4">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <h3 class="text-base font-bold text-white">Backup, Restore, or Reset Progress</h3>
+        <button id="closeDataModalBtn" type="button" class="text-slate-400 hover:text-white text-sm font-mono px-2 py-1">✕</button>
+      </div>
+      <p class="text-xs text-slate-300">
+        Your progress is automatically saved in your browser. Copy the JSON snapshot below to back up your progress across devices, or paste a snapshot to restore.
+      </p>
+      <textarea id="jsonStateTextarea" rows="6" class="w-full font-mono text-[11px] bg-slate-900 border border-slate-700 rounded-lg p-3 text-cyan-200 focus:outline-none focus:border-cyan-400"></textarea>
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-2">
+        <button id="resetAllProgressBtn" type="button" class="px-3 py-2 rounded-lg text-xs font-semibold bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border border-rose-500/30">
+          Reset All Progress
+        </button>
+        <div class="flex items-center gap-2">
+          <button id="copyJsonBtn" type="button" class="px-3.5 py-2 rounded-lg text-xs font-medium bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
+            Copy JSON
+          </button>
+          <button id="importJsonBtn" type="button" class="px-3.5 py-2 rounded-lg text-xs font-semibold bg-cyan-500 hover:bg-cyan-400 text-slate-950">
+            Import &amp; Apply
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 bg-slate-950 py-4 mt-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-slate-500">
+      <div>Synthesized from your 8-Week AWS Prep Roadmap, 60-Day Master Blueprint &amp; 2027–2030 FAANG Playbook</div>
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="https://cs50.harvard.edu/python" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition">Harvard CS50P</a>
+        <a href="https://github.com/DataTalksClub/data-engineering-zoomcamp" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition">DE Zoomcamp</a>
+        <a href="https://iceberg.apache.org/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition">Apache Iceberg</a>
+        <a href="https://flink.apache.org/" target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition">Apache Flink</a>
+        <a href="https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro" target="_blank" rel="noopener noreferrer" class="hover:text-purple-400 transition">MCP Spec</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ============================================================================
+    // 0. DAY 1 SETUP & 8-WEEK SPRINT DATA (FROM USER'S UPLOADED PDF & MD BLUEPRINT)
+    // ============================================================================
+    const DAY1_TASKS = [
+      {
+        id: 'd1_1',
+        title: '1. Configure IDE (VS Code + Extensions)',
+        desc: 'Install Visual Studio Code with Python, SQLTools, Docker, GitLens, and Ruff/Black formatting extensions.'
+      },
+      {
+        id: 'd1_2',
+        title: '2. Enable Docker Desktop on Your 32GB RAM Workstation',
+        desc: 'Verify WSL2 / virtualization is enabled so you can spin up multi-container Kafka, Airflow, and Postgres clusters locally with zero cloud bill anxiety.'
+      },
+      {
+        id: 'd1_3',
+        title: '3. Spin Up Local PostgreSQL 15 Container',
+        desc: 'Run: docker run --name de-postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:15 and verify connection.'
+      },
+      {
+        id: 'd1_4',
+        title: '4. Initialize Daily GitHub Commit Repository',
+        desc: 'Create your public de-mastery-2026 repo and commit every Python script, SQL query, and docker-compose.yml starting Day 1.'
+      }
+    ];
+
+    const WEEKLY_SPRINT = [
+      {
+        id: 'w1',
+        week: 'Week 1 (Phase 1)',
+        title: 'Python CS Fundamentals, Defensive I/O & First 15–20 LeetCode Easy',
+        focus: 'CS50P + Generators (yield) + Dirty JSON/Parquet I/O + LeetCode Top SQL/Python',
+        deliverable: 'Ingest a paginated REST API (CoinGecko / Open-Meteo), flatten dirty JSON, and bulk-insert into local Docker PostgreSQL via psycopg2.',
+        aiTip: 'After solving each LeetCode problem, ask Claude/ChatGPT for 2–3 alternative variations and type them from memory.',
+        url: 'https://cs50.harvard.edu/python',
+        urlLabel: 'Harvard CS50P Course'
+      },
+      {
+        id: 'w2',
+        week: 'Week 2 (Phase 1)',
+        title: 'Python for Data Engineers (OOP, APIs, Pandas) + 15–20 More LeetCode',
+        focus: 'Darshil Parmar Python for DE track + Modular Extractor/Transformer/Loader classes + Type Annotations',
+        deliverable: 'Refactor Week 1 script into an OOP pipeline with retry backoff, custom exceptions, and pytest unit tests.',
+        aiTip: 'Use AI to generate edge-case unit tests (null foreign keys, negative prices, duplicate timestamps).',
+        url: 'https://github.com/danielbeach/data-engineering-practice',
+        urlLabel: 'Daniel Beach Practice Repo'
+      },
+      {
+        id: 'w3',
+        week: 'Week 3 (Phase 1)',
+        title: 'Advanced SQL Mastery: Window Functions, CTEs & Indexing',
+        focus: 'ROW_NUMBER, RANK, DENSE_RANK, LAG/LEAD, rolling ROWS BETWEEN frames + StrataScratch / LeetCode Database',
+        deliverable: 'Write complex window-function and recursive CTE queries from memory without looking up syntax.',
+        aiTip: 'Paste your SQL + EXPLAIN ANALYZE plan and ask AI why the optimizer chose a Hash Join vs. Nested Loop.',
+        url: 'https://platform.stratascratch.com/coding',
+        urlLabel: 'StrataScratch SQL Questions'
+      },
+      {
+        id: 'w4',
+        week: 'Week 4 (Phase 2)',
+        title: 'Dimensional Data Modeling (Star Schema, SCD2) + ETL/ELT + dbt Basics',
+        focus: 'Fact vs. Dimension tables, Slowly Changing Dimensions (SCD Type 1 & Type 2), and modular dbt SQL models + schema tests',
+        deliverable: 'Model a Kimball Star Schema with SCD Type 2 history and dbt unique/not_null/relationships tests.',
+        aiTip: 'Ask AI to act as a Principal Data Quality Engineer and critique your Star Schema grain and slowly changing dimensions.',
+        url: 'https://github.com/dataexpert-io/data-engineer-handbook',
+        urlLabel: 'Zach Wilson DE Handbook'
+      },
+      {
+        id: 'w5',
+        week: 'Week 5 (Phase 2)',
+        title: 'Apache Airflow Orchestration + PySpark Fundamentals + Data Quality',
+        focus: 'Idempotent Airflow DAGs in Docker, PySpark DataFrame API & Catalyst/Shuffle basics, Great Expectations / Soda validation',
+        deliverable: 'Run local Airflow via Docker Compose orchestrating a PySpark / dbt transformation gated by Soda or GX checks.',
+        aiTip: 'Have AI review your Airflow DAG for non-idempotent bugs or XCom memory bloat before running it.',
+        url: 'https://github.com/DataTalksClub/data-engineering-zoomcamp',
+        urlLabel: 'DataTalksClub DE Zoomcamp'
+      },
+      {
+        id: 'w6',
+        week: 'Week 6 (Phase 2)',
+        title: 'Focused AWS Data Stack + Start AWS Certified Data Engineer – Associate Prep',
+        focus: 'AWS S3 (partitioned data lake) → Glue (ETL + Catalog) → Redshift (Warehouse) → Lambda → Athena → IAM least-privilege',
+        deliverable: 'Build a Medallion (Bronze/Silver/Gold) lake on AWS Free Tier S3 and query partitioned Parquet via serverless Athena.',
+        aiTip: 'Ask AI "When would I choose AWS Glue vs. Lambda vs. EMR for this workload?" and verify limits against official AWS docs.',
+        url: 'https://aws.amazon.com/certification/certified-data-engineer-associate/',
+        urlLabel: 'AWS DE Associate Cert'
+      },
+      {
+        id: 'w7',
+        week: 'Week 7 (Phase 3)',
+        title: 'Build & Deploy Portfolio Project 1: End-to-End Batch ELT Pipeline',
+        focus: 'Public API → Raw S3 → dbt Transformations → Redshift / Postgres → Scheduled Airflow DAG → Data Quality Checks',
+        deliverable: 'Push complete Project 1 to GitHub with an architectural diagram README, CI linting, and reproduction steps.',
+        aiTip: 'Save your README structure and DAG review checklist as a reusable Agent "Skill" instruction file.',
+        url: 'https://github.com/ABZ-Aaron/Reddit-API-Pipeline',
+        urlLabel: 'Shadow Reddit-API-Pipeline'
+      },
+      {
+        id: 'w8',
+        week: 'Week 8 (Phase 3)',
+        title: 'Build Project 2 (Near-Real-Time Streaming) + System Design & Mock Interviews',
+        focus: 'Kafka / Kinesis → Spark Streaming / Flink / Lambda → Warehouse + Specific Business Question Dashboard + Mock Loops',
+        deliverable: 'Deploy streaming anomaly/business pipeline + complete 4 AI/peer role-play system design mock interviews.',
+        aiTip: 'Have Claude/ChatGPT role-play a strict Amazon/Netflix interviewer probing your failure handling and late-data watermarks.',
+        url: 'https://www.techinterview.net/blog/netflix-data-engineer-interview-guide',
+        urlLabel: 'System Design Interview Guide'
+      }
+    ];
+
+    // ============================================================================
+    // 1. CURRICULUM DATA: 32 GROUNDED SKILLS ACROSS 6 PHASES (2026 FAANG/FINTECH/AWS)
+    // ============================================================================
+    const PHASES = [
+      { id: 'p1', short: 'Phase 1', name: 'Core Foundations (Weeks 1–3)', color: 'cyan', desc: 'CS50P Python, Window SQL, Kimball SCD2, Docker & Rust/Arrow' },
+      { id: 'p2', short: 'Phase 2', name: 'AWS Cloud & Lakehouse Storage', color: 'blue', desc: 'AWS S3/Glue/Redshift/Athena, Apache Iceberg, Delta, DuckDB & Polars' },
+      { id: 'p3', short: 'Phase 3', name: 'Distributed Compute & Streaming', color: 'indigo', desc: 'PySpark 4.x Internals, Kafka, Flink Stateful Streams, Debezium CDC' },
+      { id: 'p4', short: 'Phase 4', name: 'DataOps, Contracts & FinOps', color: 'emerald', desc: 'dbt, Airflow/Dagster, Great Expectations/Soda, OpenLineage & Green Ops' },
+      { id: 'p5', short: 'Phase 5', name: 'Agentic AI in Data Engineering', color: 'purple', desc: 'MCP Servers, Reusable Skills, LangGraph/CrewAI, Genie/CoCo, Vector ETL' },
+      { id: 'p6', short: 'Phase 6', name: 'FAANG & Fintech System Design', color: 'amber', desc: 'ClickHouse/Pinot OLAP, Double-Entry Ledgers, Data Mesh & Mock Loops' }
+    ];
+
+    const INITIAL_SKILLS = [
+      // PHASE 1: CORE FOUNDATIONS
+      {
+        id: 's1',
+        phase: 'p1',
+        title: 'Advanced Analytical SQL & Query Execution Plans (Weeks 1–3 Target)',
+        priority: 'Must-Have',
+        hours: 25,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Most underestimated skill in Amazon, Meta, Uber & Fintech live coding rounds.',
+        why: 'By the end of Week 3, you must write window-function queries from memory without looking up syntax and inspect EXPLAIN ANALYZE plans to eliminate full table scans.',
+        subtasks: [
+          'Window functions from memory: ROW_NUMBER, RANK, DENSE_RANK, LAG/LEAD, FIRST_VALUE',
+          'Rolling aggregations: SUM() OVER(PARTITION BY ... ORDER BY ... ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)',
+          'CTEs, Recursive CTEs, COALESCE, and SARGable predicates with B-Tree composite indexes',
+          'Complete Mode SQL Tutorial + 40 StrataScratch / LeetCode Database questions (Amazon/Meta tagged)'
+        ],
+        milestone: 'Solve the LeetCode Top 50 SQL study plan and 30 StrataScratch medium/hard problems without syntax lookups.',
+        links: [
+          { label: 'StrataScratch Coding Platform', url: 'https://platform.stratascratch.com/coding' },
+          { label: 'ThoughtSpot / Mode SQL Tutorial', url: 'https://www.thoughtspot.com/sql-tutorial' }
+        ]
+      },
+      {
+        id: 's2',
+        phase: 'p1',
+        title: 'Production Python for Data Engineering (CS50P + Defensive I/O + LeetCode)',
+        priority: 'Must-Have',
+        hours: 25,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Tested in live coding rounds (50–60 LeetCode Easy + HackerRank Python) and daily DAG building.',
+        why: 'Go past basic syntax into real CS fundamentals: time complexity of lists/dicts/sets, OOP for Airflow Operators & PySpark, memory-safe generators (yield), and API ingestion.',
+        subtasks: [
+          'Complete Harvard CS50P (Week 1) + Darshil Parmar Python for Data Engineers track (Weeks 2–3)',
+          'Data structures time complexity (dict/set O(1) lookups vs list O(n)) + 50–60 LeetCode Easy problems',
+          'Modular OOP pipeline classes (Extractor, Transformer, Loader) with type annotations & custom exceptions',
+          'Defensive REST API ingestion with requests/aiohttp, pagination, retries, and dirty nested JSON parsing'
+        ],
+        milestone: 'Ingest a paginated REST API, flatten nested JSON using generators, and bulk load into local Docker Postgres with pytest tests.',
+        links: [
+          { label: 'Harvard CS50P (Intro to Python)', url: 'https://cs50.harvard.edu/python' },
+          { label: 'Joseph Machado Beginner DE Project', url: 'https://github.com/josephmachado/beginner_de_project' }
+        ]
+      },
+      {
+        id: 's3',
+        phase: 'p1',
+        title: 'Dimensional Data Modeling (Star Schema, SCD Type 2) & Relational Internals',
+        priority: 'Must-Have',
+        hours: 20,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech'],
+        companyContext: 'Core of Week 2 & Week 4 roadmaps; heavily tested at Airbnb, Netflix, Amazon, and Stripe.',
+        why: 'AI can write boilerplate SQL, but it cannot choose the right fact grain or design Slowly Changing Dimensions (SCD Type 2) that preserve historical truth for audits and ML.',
+        subtasks: [
+          'Star Schema vs. Snowflake Schema; normalization (3NF OLTP) vs. denormalization (OLAP)',
+          'Fact table types: Transactional, Periodic Snapshot, and Accumulating Snapshot',
+          'Slowly Changing Dimensions: SCD Type 1 (overwrite) vs. SCD Type 2 (effective_from, effective_to, is_current)',
+          'PostgreSQL internals: ACID isolation levels, Write-Ahead Logging (WAL), and connection pooling'
+        ],
+        milestone: 'Model an e-commerce & fintech Star Schema with SCD Type 2 customer tiers using Zach Wilson’s handbook patterns.',
+        links: [
+          { label: 'Zach Wilson Data Engineer Handbook', url: 'https://github.com/dataexpert-io/data-engineer-handbook' },
+          { label: 'Debezium & WAL Log Internals', url: 'https://debezium.io/documentation/reference/stable/index.html' }
+        ]
+      },
+      {
+        id: 's4',
+        phase: 'p1',
+        title: 'Docker Containers, Linux CLI, Terraform IaC & GitHub Actions CI/CD',
+        priority: 'Must-Have',
+        hours: 18,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech'],
+        companyContext: 'Separates real software-disciplined data engineers from notebook-only hobbyists.',
+        why: 'Your 32GB RAM workstation can run full multi-container clusters (Postgres + Airflow + Kafka + Spark) in Docker Compose, provisioned reproducibly with Terraform and tested via GitHub Actions.',
+        subtasks: [
+          'Multi-container docker-compose.yml with healthchecks, persistent volumes, and resource limits',
+          'Infrastructure as Code (IaC) basics with Terraform / CloudFormation for S3, Redshift, and IAM',
+          'Linux CLI fluency (bash scripting, jq, awk, sed, curl, ssh) and environment variable security',
+          'GitHub Actions CI/CD pipelines running automated SQL linting and pytest suites on every push'
+        ],
+        milestone: 'Shadow DataTalksClub Zoomcamp Module 1 to spin up Docker + Postgres + Terraform reproducible infra.',
+        links: [
+          { label: 'DataTalksClub DE Zoomcamp Repo', url: 'https://github.com/DataTalksClub/data-engineering-zoomcamp' }
+        ]
+      },
+      {
+        id: 's5',
+        phase: 'p1',
+        title: 'Rust & Zero-Copy Columnar Memory (Apache Arrow Fundamentals)',
+        priority: 'Cutting-Edge 2026',
+        hours: 16,
+        tracks: ['all', 'faang', 'fintech'],
+        companyContext: 'Key 2026–2030 FAANG Playbook pillar: Green Computing & algorithmic efficiency.',
+        why: 'Apache Arrow and Rust-based vectorized kernels (Polars, DataFusion, Comet) slash CPU cycles by 60%+ and eliminate JVM serialization overhead across modern engines.',
+        subtasks: [
+          'Row-oriented vs. Columnar memory layout and SIMD vectorized CPU execution',
+          'How Apache Arrow enables zero-copy data sharing between Python, Rust, DuckDB, and Spark',
+          'Understanding why Rust memory safety without garbage collection prevents streaming latency spikes',
+          'Using PyArrow to inspect schemas and stream zero-copy record batches'
+        ],
+        milestone: 'Benchmark zero-copy Arrow transfers between Polars and DuckDB on a 20M-row dataset on your local machine.',
+        links: [
+          { label: 'Rust & Apache Arrow in the Spark/Flink World (2026)', url: 'https://techpreneurr.medium.com/can-rust-replace-java-in-the-spark-flink-world-a-data-engineers-view-in-2026-ae527d980dcb' }
+        ]
+      },
+
+      // PHASE 2: AWS CLOUD STACK & MODERN LAKEHOUSE STORAGE
+      {
+        id: 's6',
+        phase: 'p2',
+        title: 'Focused AWS Data Engineering Stack (S3, Glue, Redshift, Lambda, Athena, IAM)',
+        priority: 'Must-Have',
+        hours: 26,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech'],
+        companyContext: 'Core of your Week 6 Roadmap & AWS Certified Data Engineer – Associate exam.',
+        why: 'You don’t need to memorize all 200+ AWS services—master the exact 6-service data pipeline backbone that recruiters and hiring managers filter and test on.',
+        subtasks: [
+          'Amazon S3 Data Lake: Medallion buckets (Bronze/Silver/Gold), prefix partitioning (year=/month=/day=), lifecycle tiers',
+          'AWS Glue (Serverless Spark ETL + Glue Data Catalog crawlers) vs. AWS Lambda (lightweight event-driven compute)',
+          'Amazon Redshift (clustered & serverless cloud warehouse, DISTKEY/SORTKEY) & Amazon Athena (serverless Trino SQL on S3)',
+          'AWS IAM least-privilege roles/policies + AWS Certified Data Engineer – Associate exam readiness'
+        ],
+        milestone: 'Deploy the Week 6 AWS pipeline on Free Tier (S3 -> Glue/Lambda -> Athena/Redshift) and take an AWS DE Associate practice exam.',
+        links: [
+          { label: 'AWS Certified Data Engineer – Associate Official Page', url: 'https://aws.amazon.com/certification/certified-data-engineer-associate/' },
+          { label: 'ABZ-Aaron AWS S3/Redshift/Airflow Reference Repo', url: 'https://github.com/ABZ-Aaron/Reddit-API-Pipeline' }
+        ]
+      },
+      {
+        id: 's7',
+        phase: 'p2',
+        title: 'Columnar File Formats: Apache Parquet Internals',
+        priority: 'Must-Have',
+        hours: 14,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech'],
+        companyContext: 'Tested in FAANG query optimization rounds & AWS Athena cost reduction.',
+        why: 'Senior interviews always probe how Parquet achieves 10x compression and fast scans via Row Groups, Column Chunks, Min/Max footer statistics, and Dictionary/RLE encoding.',
+        subtasks: [
+          'Parquet anatomy: Row Groups, Column Chunks, Data Pages, and Footer metadata',
+          'Predicate Pushdown (Min/Max stats, Bloom Filters) and Projection Pushdown',
+          'Compression codecs trade-offs: Zstandard (Zstd) vs. Snappy vs. Gzip',
+          'Solving the "Small Files Problem" by compacting into 128MB–512MB files to slash S3/Athena scan costs'
+        ],
+        milestone: 'Inspect Parquet footers with PyArrow/DuckDB and demonstrate how partitioning + Zstd cuts AWS Athena data scanned by >85%.',
+        links: [
+          { label: 'Apache Iceberg & Parquet Storage', url: 'https://iceberg.apache.org/' }
+        ]
+      },
+      {
+        id: 's8',
+        phase: 'p2',
+        title: 'Apache Iceberg Architecture (The 2026 Enterprise Lakehouse Default)',
+        priority: 'Must-Have',
+        hours: 28,
+        tracks: ['all', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Invented at Netflix; native in AWS Athena/Glue, Snowflake, BigQuery, Databricks, and Stripe.',
+        why: 'Apache Iceberg brings ACID transactions, zero-copy time travel, hidden partitioning, and multi-engine isolation directly to cloud object storage (S3/GCS).',
+        subtasks: [
+          'Iceberg metadata tree: Catalog -> Metadata File (JSON) -> Manifest List -> Manifest Files -> Data Files',
+          'Hidden Partitioning & in-place Partition Evolution without rewriting petabytes of historical S3 data',
+          'Copy-on-Write (CoW) vs. Merge-on-Read (MoR) with positional and equality delete files',
+          'Table maintenance: Compaction (rewrite_data_files), Snapshot expiration, and Write-Audit-Publish (WAP) branching'
+        ],
+        milestone: 'Create an Apache Iceberg table on S3/local MinIO, perform schema & partition evolution, and query historical snapshots.',
+        links: [
+          { label: 'Apache Iceberg Official Docs', url: 'https://iceberg.apache.org/' },
+          { label: 'How Netflix Uses Apache Iceberg in Production (2026)', url: 'https://factorhouse.io/resources/iceberg/use-cases/netflix/' },
+          { label: 'Netflix DE Interview Guide: Iceberg', url: 'https://www.techinterview.net/blog/netflix-data-engineer-interview-guide' }
+        ]
+      },
+      {
+        id: 's9',
+        phase: 'p2',
+        title: 'Delta Lake, Apache Hudi & Unified Catalogs (Unity Catalog / Polaris)',
+        priority: 'High-Leverage',
+        hours: 16,
+        tracks: ['all', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Featured in your FAANG Playbook Open Table Formats & Lakehouse Platforms matrix.',
+        why: 'Knowing how Delta Lake (_delta_log), Apache Iceberg, and Apache Hudi compare—and how Unity Catalog / Polaris unify governance—prepares you for any enterprise stack.',
+        subtasks: [
+          'Comparing Iceberg vs. Delta Lake vs. Hudi (upsert heavy vs. multi-engine read/write)',
+          'Z-Ordering and Liquid Clustering for multi-dimensional query pruning',
+          'Zero-copy cross-cloud data sharing and open REST catalog protocols',
+          'Hands-on practice in Databricks Free / Community Edition with Delta Lake & Unity Catalog'
+        ],
+        milestone: 'Build a Bronze -> Silver -> Gold Medallion notebook in Databricks Free Edition using Delta Lake / Iceberg.',
+        links: [
+          { label: '2026 Data Engineering Trends: Iceberg, Delta & Unity Catalog', url: 'https://complereinfosystem.com/blogs/data-engineering-trends-2026' }
+        ]
+      },
+      {
+        id: 's10',
+        phase: 'p2',
+        title: 'Single-Node Vectorized Engines: DuckDB & Polars (Green Compute)',
+        priority: 'Cutting-Edge 2026',
+        hours: 16,
+        tracks: ['all', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Highlighted in Daniel Beach’s benchmarks & your 2027–2030 Green Computing Playbook.',
+        why: 'Instead of spinning up a costly Spark cluster for 20GB of data, Polars (Rust Lazy DataFrames) and DuckDB (in-process OLAP) process hundreds of millions of rows on your 32GB ZenBook in seconds.',
+        subtasks: [
+          'Polars Lazy API (scan_parquet, query optimization plan, streaming out-of-core execution)',
+          'DuckDB direct zero-copy querying over S3 Parquet/Iceberg files and local dbt unit testing',
+          'Replacing memory-hungry Pandas scripts with Polars expressions to cut CPU/RAM by 60%+',
+          'Knowing the architectural threshold (~100GB–500GB) where single-node DuckDB/Polars hands off to distributed Spark'
+        ],
+        milestone: 'Benchmark Pandas vs. Polars + DuckDB on a 15M-row NYC Taxi dataset and document the RAM and CPU savings.',
+        links: [
+          { label: 'DuckDB Official Documentation', url: 'https://duckdb.org/docs/current/' },
+          { label: 'The Modern Analytics Stack: DuckDB, Polars, Iceberg & dbt (2026)', url: 'https://medium.com/@komalbaparmar007/the-modern-analytics-stack-duckdb-polars-iceberg-and-dbt-96492d34c688' }
+        ]
+      },
+      {
+        id: 's11',
+        phase: 'p2',
+        title: 'Federated Distributed SQL: Trino / Presto (Powering AWS Athena)',
+        priority: 'High-Leverage',
+        hours: 14,
+        tracks: ['all', 'aws_sprint', 'faang'],
+        companyContext: 'Core compute engine at Meta, Netflix, Airbnb, and under the hood of AWS Athena.',
+        why: 'Trino lets you run fast distributed ANSI SQL across S3 Iceberg lakes, Kafka topics, Redshift, and Postgres without copying data.',
+        subtasks: [
+          'Trino Coordinator vs. Worker MPP architecture and how AWS Athena executes serverless Trino queries',
+          'Federated joins across Iceberg object storage, PostgreSQL, and live Kafka streams',
+          'Broadcast Joins vs. Partitioned Hash Joins and memory spill tuning in Trino',
+          'Cost optimization: partition projection and bucketing in Trino / Athena'
+        ],
+        milestone: 'Write a federated query joining live operational Postgres data with historical S3 Iceberg/Parquet partitions.',
+        links: [
+          { label: 'Trino 484 Official Documentation', url: 'https://trino.io/docs/current/index.html' }
+        ]
+      },
+
+      // PHASE 3: DISTRIBUTED COMPUTE & REAL-TIME STREAMING
+      {
+        id: 's12',
+        phase: 'p3',
+        title: 'Apache Spark / PySpark 4.x Internals: Catalyst, Tungsten, Shuffle & Skew',
+        priority: 'Must-Have',
+        hours: 34,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech'],
+        companyContext: 'Week 3–5 Roadmap core + 90% of FAANG senior DE debugging interviews.',
+        why: 'For junior/mid roles you need fluent PySpark DataFrame API & basic architecture; for FAANG/Fintech loops you must diagnose Data Skew, Disk Spill, Broadcast vs. Shuffle joins, and AQE.',
+        subtasks: [
+          'Architecture: Driver, Cluster Manager, Workers, Executors, Slots, and Lazy DAG Evaluation',
+          'Narrow transformations (map, filter) vs. Wide transformations (groupBy, join, repartition) that trigger Shuffles',
+          'Catalyst Optimizer (explain plans), Project Tungsten off-heap memory, and Adaptive Query Execution (AQE)',
+          'Fixing OOM & Skew: Broadcast joins (broadcast()), salting skewed keys, and repartition() vs. coalesce()'
+        ],
+        milestone: 'Build a PySpark Medallion pipeline in Databricks Free Edition and fix a skewed join using Broadcast / AQE.',
+        links: [
+          { label: 'Apache Spark 4.2.0 Documentation', url: 'https://spark.apache.org/docs/latest/' },
+          { label: 'Mastering Apache Spark for FAANG: The 2026 Playbook', url: 'https://www.techinterview.net/blog/mastering-apache-spark-faang-playbook' }
+        ]
+      },
+      {
+        id: 's13',
+        phase: 'p3',
+        title: 'Apache Kafka & AWS Kinesis: Event-Driven Streaming Backbone',
+        priority: 'Must-Have',
+        hours: 24,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech'],
+        companyContext: 'Week 7–8 Roadmap core + backbone of Netflix, Uber, Airbnb, Swiggy, and Stripe.',
+        why: 'Kafka decouples high-frequency producers from downstream consumers. You must understand topics, partitions, consumer groups, offsets, and Dead-Letter Queues (DLQ).',
+        subtasks: [
+          'Producers, Consumers, Topics, Partitions, Consumer Groups, Offsets, and KRaft consensus',
+          'Delivery guarantees: At-most-once, At-least-once, and Exactly-once (acks=all, enable.idempotence=true)',
+          'Comparing self-managed/Confluent Kafka vs. AWS Kinesis Data Streams for cloud architectures',
+          'Schema Registry (Avro/Protobuf) and routing poisoned/malformed messages to a Dead-Letter Queue (DLQ)'
+        ],
+        milestone: 'Spin up Kafka in Docker on your ZenBook, stream 500ms transaction events, and route anomalies/errors to a DLQ.',
+        links: [
+          { label: 'Apache Kafka Official Documentation', url: 'https://kafka.apache.org/documentation/' },
+          { label: 'How Netflix Uses Apache Kafka in Production (2026)', url: 'https://factorhouse.io/articles/netflix-kafka-architecture/' },
+          { label: 'How Airbnb Uses Apache Kafka in Production (2026)', url: 'https://factorhouse.io/articles/airbnb-kafka-architecture/' }
+        ]
+      },
+      {
+        id: 's14',
+        phase: 'p3',
+        title: 'Apache Flink: Stateful Sub-Second Stream Processing',
+        priority: 'Must-Have',
+        hours: 28,
+        tracks: ['all', 'faang', 'fintech'],
+        companyContext: 'Featured in your FAANG Playbook as the premier stateful stream processor.',
+        why: 'When micro-batching isn’t fast enough for real-time fraud scoring, surge pricing, or session windowing, Apache Flink provides true event-at-a-time stateful processing.',
+        subtasks: [
+          'Event Time vs. Processing Time, Watermarks, and handling late-arriving out-of-order records',
+          'Sliding, Tumbling, and Session windows + stateful enrichment across streams',
+          'RocksDB State Backend, asynchronous Checkpointing, and Exactly-Once two-phase commit sinks',
+          'Direct streaming ingestion from Kafka -> Apache Flink -> Apache Iceberg tables'
+        ],
+        milestone: 'Build a Flink streaming job with Event-Time watermarks computing 5-minute sliding window fraud velocity metrics.',
+        links: [
+          { label: 'Apache Flink Official Site', url: 'https://flink.apache.org/' },
+          { label: 'Iceberg + Flink Getting Started', url: 'https://iceberg.apache.org/docs/1.8.1/flink/' },
+          { label: 'Netflix Real-Time Distributed Graph with Kafka & Flink', url: 'https://netflixtechblog.com/how-and-why-netflix-built-a-real-time-distributed-graph-part-1-ingesting-and-processing-data-80113e124acc' }
+        ]
+      },
+      {
+        id: 's15',
+        phase: 'p3',
+        title: 'Log-Based Change Data Capture (CDC) with Debezium',
+        priority: 'Must-Have',
+        hours: 18,
+        tracks: ['all', 'faang', 'fintech'],
+        companyContext: 'Essential for Fintech ledgers and syncing OLTP Postgres/MySQL to Lakehouses.',
+        why: 'Log-based CDC tails the database Write-Ahead Log (WAL) or binlog directly, capturing every insert, update, and hard delete in real time without burdening production DB CPU.',
+        subtasks: [
+          'Why log-based CDC (Debezium) beats query-based polling (WHERE updated_at > X)',
+          'Configuring PostgreSQL logical replication slots and Debezium Kafka Connect source connectors',
+          'Parsing CDC event envelopes (before, after, op: c/u/d/r, ts_ms) and handling schema evolution',
+          'Applying CDC upserts and deletes cleanly into Apache Iceberg Merge-on-Read (MoR) tables'
+        ],
+        milestone: 'Stream live row-level changes from local Docker Postgres via Debezium into Kafka and sink to Iceberg/Parquet.',
+        links: [
+          { label: 'Debezium Reference Documentation', url: 'https://debezium.io/documentation/reference/stable/index.html' },
+          { label: 'Debezium Kafka Connect Tutorial', url: 'https://debezium.io/documentation/reference/stable/kc-tutorial.html' }
+        ]
+      },
+      {
+        id: 's16',
+        phase: 'p3',
+        title: 'Distributed AI Compute & Streaming Trade-offs (Spark Streaming vs. Flink vs. Ray)',
+        priority: 'High-Leverage',
+        hours: 14,
+        tracks: ['all', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Featured in your FAANG Playbook Compute Engines (Spark, Trino, ClickHouse, Ray).',
+        why: 'Product companies expect you to justify when to use Spark Structured Streaming (unified batch/micro-batch), Apache Flink (sub-second stateful CEP), or Ray (distributed Python/AI workloads).',
+        subtasks: [
+          'Lambda Architecture (separate batch + speed layers) vs. Kappa Architecture (unified streaming log)',
+          'Spark Structured Streaming micro-batches vs. Flink continuous operators',
+          'When to use Ray Data for distributed multimodal/LLM batch inference and embedding generation',
+          'Backpressure management and checkpoint recovery under sudden 10x traffic spikes'
+        ],
+        milestone: 'Document a Lambda vs. Kappa trade-off matrix for an Uber surge pricing or Stripe fraud interview prompt.',
+        links: [
+          { label: 'Spark Structured Streaming Kafka to Iceberg Guide (2026)', url: 'https://factorhouse.io/resources/spark/pipelines/spark-structured-streaming-kafka-to-iceberg/' },
+          { label: 'Kafka Connect vs. Flink vs. Spark Comparison', url: 'https://www.onehouse.ai/blog/kafka-connect-vs-flink-vs-spark-choosing-the-right-ingestion-framework' }
+        ]
+      },
+
+      // PHASE 4: DATAOPS, CONTRACTS, OBSERVABILITY & FINOPS
+      {
+        id: 's17',
+        phase: 'p4',
+        title: 'Analytics Engineering & Modular ELT Transformation with dbt',
+        priority: 'Must-Have',
+        hours: 22,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Week 4 & Week 6 Roadmap core; appears in almost every modern DE job description.',
+        why: 'ELT is dominant now—raw data lands in S3/warehouse first, and dbt handles version-controlled, tested, documented modular SQL/Python transformations.',
+        subtasks: [
+          'Structuring Staging (Bronze) -> Intermediate (Silver) -> Marts (Gold) models with ref() and source()',
+          'Incremental materializations (merge, insert_overwrite, microbatch) to avoid full-table rebuilds',
+          'Built-in schema tests (unique, not_null, relationships, accepted_values) + custom singular SQL tests',
+          'Jinja templating, macros, packages, and auto-generating dbt lineage documentation'
+        ],
+        milestone: 'Transform raw staged data into a tested Kimball Star Schema in Postgres/Redshift/DuckDB using dbt.',
+        links: [
+          { label: 'dbt Developer Hub Documentation', url: 'https://docs.getdbt.com/' },
+          { label: 'dbt Documentation & Lineage Guide', url: 'https://docs.getdbt.com/docs/build/documentation' }
+        ]
+      },
+      {
+        id: 's18',
+        phase: 'p4',
+        title: 'Declarative Orchestration: Apache Airflow, Dagster & Temporal',
+        priority: 'Must-Have',
+        hours: 24,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech'],
+        companyContext: 'Week 5 Roadmap core + FAANG Playbook Declarative Orchestration pillar.',
+        why: 'You must write strictly idempotent DAGs (running the same date partition 10 times never duplicates rows), configure retries with exponential backoff, and understand asset-centric orchestration.',
+        subtasks: [
+          'Apache Airflow in Docker: TaskFlow API, PythonOperator, cron schedules, catchup, and avoiding XCom bloat',
+          'Designing idempotent pipelines (DELETE-INSERT by partition or MERGE by primary key)',
+          'Dagster Software-Defined Assets (SDAs) for lineage-aware, declarative data asset management',
+          'Understanding when workflow engines like Temporal or Kestra complement traditional DAG schedulers'
+        ],
+        milestone: 'Run Apache Airflow in Docker on your ZenBook orchestrating an API -> S3 -> dbt -> Warehouse pipeline with retries.',
+        links: [
+          { label: 'Dagster + DuckDB & Polars Orchestration Guide', url: 'https://www.getorchestra.io/guides/dagster-pipelines-leverage-duckdb-polars-for-data-management' },
+          { label: 'ClickHouse Official Apache Airflow Provider (2026)', url: 'https://clickhouse.com/blog/clickhouse-airflow-provider' }
+        ]
+      },
+      {
+        id: 's19',
+        phase: 'p4',
+        title: 'Data Quality, Contracts & Observability (Great Expectations, Soda, Monte Carlo)',
+        priority: 'Must-Have',
+        hours: 18,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Highlighted in all 3 of your documents as the mandatory safeguard for AI & BI.',
+        why: 'Unlike a crashed job, a silently wrong number doesn’t announce itself. Proactive validation (Great Expectations / Soda) and API-style Data Contracts prevent "garbage in, AI hallucination out."',
+        subtasks: [
+          'Writing automated validation suites with Great Expectations (GX Core) or SQL-native SodaCL checks',
+          'Implementing Write-Audit-Publish (WAP): validate on a staging table/branch before publishing to Gold',
+          'Producer-Consumer Data Contracts: validating JSON Schema / Protobuf at the ingestion boundary',
+          'The 5 Pillars of Data Observability (Monte Carlo): Freshness, Volume, Distribution, Schema, and Lineage'
+        ],
+        milestone: 'Gate your Week 7/8 portfolio pipelines with Great Expectations or Soda so corrupted records halt downstream loads.',
+        links: [
+          { label: 'Great Expectations (GX Core) Official Site', url: 'https://greatexpectations.io/' },
+          { label: 'Soda Data Quality & Lineage', url: 'https://soda.io/product/lineage' },
+          { label: 'Data Observability in 2026: Monte Carlo vs GX vs Soda', url: 'https://medium.com/@aidelearning/data-observability-in-2026-monte-carlo-vs-great-expectations-vs-soda-a-data-engineers-honest-7c8cab1b68f1' }
+        ]
+      },
+      {
+        id: 's20',
+        phase: 'p4',
+        title: 'Continuous Column-Level Lineage & Catalogs (OpenLineage & DataHub)',
+        priority: 'High-Leverage',
+        hours: 14,
+        tracks: ['all', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Featured in your FAANG Playbook Data Observability & Contracts table.',
+        why: 'OpenLineage and DataHub track end-to-end column movement across Kafka, Spark, Airflow, and dbt—providing the exact context AI agents and engineers need for impact analysis.',
+        subtasks: [
+          'Emitting OpenLineage runtime events from Airflow, Spark, Flink, and Great Expectations',
+          'Centralizing technical metadata, ownership, and quality scores in DataHub',
+          'Using column-level lineage to detect which downstream dashboards/agents break before merging a schema change',
+          'Automating documentation sync from code comments into the enterprise catalog'
+        ],
+        milestone: 'Emit OpenLineage metadata from a dbt + Great Expectations pipeline and inspect the lineage graph.',
+        links: [
+          { label: 'OpenLineage + Great Expectations Integration', url: 'https://openlineage.io/docs/integrations/great-expectations/' },
+          { label: 'DataHub OpenLineage Documentation', url: 'https://docs.datahub.com/docs/lineage/openlineage' }
+        ]
+      },
+      {
+        id: 's21',
+        phase: 'p4',
+        title: 'Cloud FinOps, Compute Economics & Green Ops',
+        priority: 'High-Leverage',
+        hours: 14,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech'],
+        companyContext: 'Core competency #5 in your FAANG Skills Playbook & 2027–2030 Sustainability Matrix.',
+        why: 'Product companies test cost/scale trade-offs in every system design round. Replacing full-table scans with incremental materializations and right-sizing clusters saves 30–60% of cloud spend.',
+        subtasks: [
+          'Partition pruning, clustering keys, and replacing full-table scans with cached/incremental materializations',
+          'AWS cost trade-offs: Glue vs. Lambda vs. EMR Spot instances vs. Athena per-TB scan pricing',
+          'Monitoring warehouse burn rates, compute quotas, and auto-suspend policies in Snowflake/Redshift/Databricks',
+          'Green Computing: offloading <100GB transforms from JVM clusters to vectorized Rust/Polars/DuckDB kernels'
+        ],
+        milestone: 'Add a "Cost & FinOps Trade-offs" section to your portfolio READMEs quantifying compute & storage efficiency.',
+        links: [
+          { label: 'Data Engineering 2026: FinOps as a Design Principle', url: 'https://vakarsh.medium.com/data-engineering-2026-part-1-foundations-of-modern-data-engineering-259db3549c32' },
+          { label: 'Top 12 Data Engineering Trends 2026: Cost Optimization', url: 'https://www.bacancytechnology.com/insights/data-engineering-trends' }
+        ]
+      },
+
+      // PHASE 5: AGENTIC AI IN DATA ENGINEERING (SYNTHESIZED FROM ALL 3 DOCS + 2026 STACK)
+      {
+        id: 's22',
+        phase: 'p5',
+        title: 'Model Context Protocol (MCP) Servers for Data Infrastructure',
+        priority: 'Cutting-Edge 2026',
+        hours: 20,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Highlighted in your AWS Roadmap PDF (Page 4–6) as the universal vendor-neutral AI standard.',
+        why: 'MCP lets AI assistants connect safely to databases, warehouses, S3, and orchestrators (e.g., Integrate.io MCP Server, Qdrant/Milvus MCP) through a single scoped interface instead of custom one-off wrappers.',
+        subtasks: [
+          'MCP Architecture: Hosts, Clients, and Servers exposing Resources, Prompts, and Tools',
+          'Building a read-only Python MCP Server over PostgreSQL / DuckDB / Iceberg with row limits & PII masking',
+          'Exploring vendor-neutral MCP pipeline servers (Integrate.io MCP, Milvus MCP, Qdrant MCP)',
+          'Debugging tool calls and schema context using the official MCP Inspector'
+        ],
+        milestone: 'Build a custom Python MCP server that lets an AI assistant inspect your project schema, check dbt test status, and run safe read-only queries.',
+        links: [
+          { label: 'Model Context Protocol (MCP) Official Intro (2026)', url: 'https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro' },
+          { label: 'Build an MCP Server Tutorial', url: 'https://modelcontextprotocol.io/docs/2026-07-28/develop/build-server' },
+          { label: 'Best AI Agents & Integrate.io MCP Server (2026)', url: 'https://www.integrate.io/blog/ai-agents-data-engineering-teams/' }
+        ]
+      },
+      {
+        id: 's23',
+        phase: 'p5',
+        title: 'Reusable Agent "Skills" & Effective Data Engineering Prompting',
+        priority: 'Must-Have',
+        hours: 12,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Directly from your AWS + Product-Company Prep PDF ("AI Fluency Track", Pages 4–5).',
+        why: 'In the Claude/agent sense, "Skills" are reusable packaged instruction sets loaded for recurring workflows (e.g., reviewing an Airflow DAG, auditing SQL plans, formatting READMEs)—signaling that you think in repeatable systems.',
+        subtasks: [
+          'Prompting with exact schemas, EXPLAIN plans, and stack traces—and always asking AI to explain "why"',
+          'Authoring a reusable SKILL.md / system instruction checklist for reviewing Airflow DAGs and Terraform IaC',
+          'Authoring a reusable Skill for generating edge-case dbt data quality tests and standardized portfolio READMEs',
+          'Verifying AI claims on cloud pricing, service limits, and latest versions against primary AWS/Databricks/Snowflake docs'
+        ],
+        milestone: 'Create a `/skills` folder in your GitHub portfolio containing 3 reusable Markdown agent skills for DAG review, SQL optimization, and test generation.',
+        links: [
+          { label: 'Agentic Data Engineering in 2026 Guide', url: 'https://dev.to/gabrielhca/agentic-data-engineering-in-2026-how-to-build-pipelines-that-ai-agents-can-actually-use-4kgg' }
+        ]
+      },
+      {
+        id: 's24',
+        phase: 'p5',
+        title: 'Multi-Agent Orchestration & Self-Healing Pipelines (LangGraph & CrewAI)',
+        priority: 'Cutting-Edge 2026',
+        hours: 22,
+        tracks: ['all', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Covers Tier-3 Autonomous Pipeline Management from your PDF & 2027–2030 FAANG Playbook.',
+        why: 'The 2026 shift moves beyond Copilot code suggestions to multi-step agents (LangGraph, CrewAI) that detect pipeline anomalies, summarize failure logs, diagnose schema drift via lineage, and draft PR fixes.',
+        subtasks: [
+          'The 3 Tiers of AI Automation: (1) Code suggestion, (2) Workflow automation, (3) Semi-autonomous pipeline management',
+          'Building stateful agent workflows in LangGraph or CrewAI (Triage Agent + SQL Fixer Agent + Validator Agent)',
+          'Automating maintenance: catching jobs that succeeded with wrong data (anomaly detection) & log root-cause triage',
+          'Human-in-the-loop safety: configuring agents to open tested GitHub PRs rather than mutating production directly'
+        ],
+        milestone: 'Build a LangGraph / CrewAI triage workflow that reads a failed Airflow/dbt log + schema diff and outputs a root-cause diagnosis & patch.',
+        links: [
+          { label: 'Best AI Agents for Data Engineering in 2026 (Rework)', url: 'https://resources.rework.com/tools/ai-agents/best-ai-agents-for-data-engineering-2026' },
+          { label: 'PyCon DE 2026: Agentic Systems with LangGraph & MCP', url: 'https://www.youtube.com/watch?v=rJKBnHYicQA' }
+        ]
+      },
+      {
+        id: 's25',
+        phase: 'p5',
+        title: 'Platform-Native Agents (Genie Code, Cortex "CoCo", BigQuery) & Semantic Text-to-SQL',
+        priority: 'Cutting-Edge 2026',
+        hours: 16,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Highlighted in your PDF (Page 5) & 2026 State of Analytics Engineering report.',
+        why: 'Platform-native agents (Databricks Genie Code, Snowflake Cortex Code "CoCo", BigQuery DE Agent) and Semantic Layers (dbt MetricFlow) prevent silent SQL join hallucinations.',
+        subtasks: [
+          'Hands-on exploration of Databricks Genie Code (Free Edition) for declarative pipeline & SQL authoring',
+          'Understanding Snowflake Cortex Code ("CoCo") & Cortex Analyst semantic models',
+          'Binding business KPIs in the dbt Semantic Layer so Text-to-SQL agents never invent inconsistent revenue formulas',
+          'Comparing ecosystem-locked platform agents vs. vendor-neutral MCP architectures for interviews'
+        ],
+        milestone: 'Configure a governed semantic model and test an MCP Text-to-SQL agent against multi-table analytical queries.',
+        links: [
+          { label: 'Best AI Text-to-SQL Agents in 2026 (SketricGen)', url: 'https://www.sketricgen.ai/blog/best-ai-text-to-sql-agents' },
+          { label: 'dbt Semantic Layer Python SDK', url: 'https://docs.getdbt.com/docs/dbt-apis/sl-python' },
+          { label: 'Building an Agentic Data Analyst with LangGraph (2026)', url: 'https://medium.com/@kapildevkhatik2/text-to-sql-was-just-step-1-building-an-agentic-data-analyst-with-langgraph-2bd9d2773d1c' }
+        ]
+      },
+      {
+        id: 's26',
+        phase: 'p5',
+        title: 'Vector & Multimodal Data Pipelines (Milvus, Qdrant, pgvector, LanceDB)',
+        priority: 'Cutting-Edge 2026',
+        hours: 20,
+        tracks: ['all', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Featured in your FAANG Playbook Vector & Multi-Modal Pipelines domain.',
+        why: 'Modern data engineers build pipelines that chunk unstructured documents/transcripts, compute embeddings incrementally, and index them with ANN (Approximate Nearest Neighbor) + metadata filters for internal LLM agents.',
+        subtasks: [
+          'Extending structured batch/streaming pipelines to emit vector embeddings alongside Iceberg/Delta tables',
+          'Comparing vector stores: pgvector (Postgres-native), LanceDB (columnar disk-backed), Qdrant, Milvus, and Pinecone',
+          'Dynamic chunking, incremental embedding refresh (avoiding full re-computation), and Hybrid Search (Dense + BM25)',
+          'Tracing lineage from source Iceberg snapshot -> document chunk -> vector ID for auditability'
+        ],
+        milestone: 'Add a pgvector or Qdrant/Milvus embedding stage to your ELT pipeline so an agent can query both SQL metrics and unstructured text.',
+        links: [
+          { label: 'LlamaIndex Model Context Protocol (MCP) Guide', url: 'https://developers.llamaindex.ai/python/framework/module_guides/mcp/' },
+          { label: 'Milvus for AI Agents & MCP Server', url: 'https://milvus.io/docs/milvus_for_agents.md' },
+          { label: 'Official Qdrant MCP Server (GitHub)', url: 'https://github.com/qdrant/mcp-server-qdrant' }
+        ]
+      },
+
+      // PHASE 6: FAANG & FINTECH SYSTEM DESIGN & INTERVIEW MASTERY
+      {
+        id: 's27',
+        phase: 'p6',
+        title: 'Real-Time User-Facing OLAP: ClickHouse & Apache Pinot',
+        priority: 'High-Leverage',
+        hours: 18,
+        tracks: ['all', 'faang', 'fintech'],
+        companyContext: 'Featured in your FAANG Playbook Compute Engines; powers Uber, Stripe, and Cloudflare.',
+        why: 'Warehouses like Redshift/Snowflake are built for internal BI, not 50,000 external users querying live dashboards at <50ms latency. ClickHouse and Apache Pinot solve high-concurrency real-time OLAP.',
+        subtasks: [
+          'ClickHouse MergeTree engines (ReplacingMergeTree, AggregatingMergeTree) and sparse primary indexing',
+          'Ingesting Kafka streams directly into ClickHouse or Apache Pinot for sub-second anomaly dashboards',
+          'Tiered storage architecture: hot real-time data in ClickHouse + cold historical partitions in S3 Apache Iceberg',
+          'Designing the serving layer for "Which product categories have the highest return rates on weekends?"'
+        ],
+        milestone: 'Connect ClickHouse (or DuckDB/Athena) to your streaming pipeline to serve sub-second analytical queries.',
+        links: [
+          { label: 'ClickHouse + dbt Integration Guide', url: 'https://clickhouse.com/docs/integrations/connectors/data-ingestion/etl-tools/dbt' },
+          { label: 'Data Architecture Deep Dives: Netflix, Uber, Spotify', url: 'https://thedataforge.dev/architectures' }
+        ]
+      },
+      {
+        id: 's28',
+        phase: 'p6',
+        title: 'Fintech Ledger Architecture: Idempotency, Double-Entry & Reconciliation',
+        priority: 'High-Leverage',
+        hours: 18,
+        tracks: ['all', 'fintech'],
+        companyContext: 'Essential for Stripe, Robinhood, Razorpay, PhonePe, Cred, Coinbase, and量化/Fintech roles.',
+        why: 'Financial pipelines require zero data loss, immutable append-only double-entry accounting, deterministic idempotency keys, and automated T+0/T+1 reconciliation.',
+        subtasks: [
+          'Designing append-only double-entry ledger tables (debit_account, credit_account, amount_cents, idempotency_key)',
+          'End-to-end idempotency across Kafka producers, Flink state, and warehouse MERGE operations',
+          'Point-in-time ASOF joins for multi-currency FX rate conversion and preventing ML feature leakage',
+          'Automated 3-way reconciliation checks (Internal DB vs. Payment Gateway vs. Bank Settlement)'
+        ],
+        milestone: 'Implement an idempotent double-entry transaction table where Soda/GX verifies SUM(debits) == SUM(credits) after every run.',
+        links: [
+          { label: 'Why Kafka + Iceberg Define Modern Streaming Architectures', url: 'https://blog.streambased.io/p/why-kafka-iceberg-will-define-the' }
+        ]
+      },
+      {
+        id: 's29',
+        phase: 'p6',
+        title: 'Data Mesh, Decentralized Ownership & Producer Data Contracts',
+        priority: 'High-Leverage',
+        hours: 12,
+        tracks: ['all', 'faang', 'fintech'],
+        companyContext: 'Originated by Zhamak Dehghani (in your PDF follow list) and pioneered at Netflix.',
+        why: 'Large product companies organize data around domain ownership ("Data as a Product") with self-serve platform tooling and federated governance.',
+        subtasks: [
+          'The 4 pillars of Data Mesh: Domain Ownership, Data as a Product, Self-Serve Platform, Federated Governance',
+          'Implementing API-style Producer-Consumer Data Contracts (Protobuf/JSON Schema) so upstream app deploys don’t break ETL',
+          'Knowing when Data Mesh is appropriate (large multi-domain orgs) vs. when a centralized warehouse is simpler',
+          'Cross-domain discovery and access control via Unity Catalog / DataHub'
+        ],
+        milestone: 'Add protobuf/JSON schema contract validation at the ingestion step of your streaming project.',
+        links: [
+          { label: 'Netflix Data Engineer Interview Guide: Data Mesh & Keystone', url: 'https://www.techinterview.net/blog/netflix-data-engineer-interview-guide' }
+        ]
+      },
+      {
+        id: 's30',
+        phase: 'p6',
+        title: 'System Design Whiteboarding & AI Mock Interview Loop (Last 10–12 Days)',
+        priority: 'Must-Have',
+        hours: 25,
+        tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+        companyContext: 'Directly from your Week 8 Blueprint & PDF ("Interview prep: last 10–12 days").',
+        why: 'In the final 10–12 days before your January interviews, combine daily SQL/Python maintenance with structured "Design a data pipeline for X" mock interviews on Exponent or with an AI interviewer.',
+        subtasks: [
+          'Master Prompt 1 (from Blueprint): Design an end-to-end data pipeline for Uber to calculate real-time surge pricing',
+          'Master Prompt 2 (from Blueprint): Design an e-commerce warehouse tracking daily Customer Lifetime Value (LTV) & weekend returns',
+          'Master Prompt 3: Design Netflix View History & recommendation feature pipeline using Kafka, Flink, and Iceberg',
+          'Run 6 role-play mock interviews with Claude/ChatGPT critiquing your capacity math, late-data handling, and cost trade-offs'
+        ],
+        milestone: 'Complete 6 full 45-minute mock system design & SQL/Python rounds and refine your STAR behavioral stories.',
+        links: [
+          { label: 'Netflix Data Engineer Interview Guide (2026)', url: 'https://www.techinterview.net/blog/netflix-data-engineer-interview-guide' },
+          { label: 'Mastering Apache Spark for FAANG Playbook', url: 'https://www.techinterview.net/blog/mastering-apache-spark-faang-playbook' }
+        ]
+      }
+    ];
+
+    // ============================================================================
+    // 2. AGENTIC AI PILLARS, PROMPT VAULT & AUDIT CHECKLIST DATA
+    // ============================================================================
+    const AGENTIC_PILLARS = [
+      {
+        id: 'mcp',
+        badge: 'Pillar 1 · Open Access Standard',
+        title: 'Model Context Protocol (MCP) Servers for Data Platforms',
+        summary: 'The universal interface letting AI assistants inspect schemas, run safe queries, and check pipeline status.',
+        problem: 'Without MCP, every database, warehouse, and orchestrator requires brittle custom glue code or unsafe raw credential sharing.',
+        architecture: 'MCP servers (such as Integrate.io’s MCP Server, Qdrant MCP, Milvus MCP, or custom Python FastMCP servers) expose standardized read-only Tools and schema Resources so any MCP-compatible assistant can inspect lineage, check DAG status, and query data without vendor lock-in.',
+        codeSnippet: `# Custom Python MCP Server Tool for Safe Warehouse Exploration
+@mcp.tool()
+def query_warehouse_readonly(sql: str) -> str:
+    """Executes a read-only analytical query with row & timeout guardrails."""
+    forbidden = ["DROP", "DELETE", "UPDATE", "INSERT", "ALTER", "TRUNCATE", "GRANT"]
+    if any(k in sql.upper() for k in forbidden):
+        raise ValueError("Mutating SQL is blocked. Read-only access enforced.")
+    return duckdb_conn.execute(f"SELECT * FROM ({sql}) LIMIT 200").df().to_markdown()`,
+        links: [
+          { label: 'MCP Official Specification (2026)', url: 'https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro' },
+          { label: 'Integrate.io MCP & DE Agents', url: 'https://www.integrate.io/blog/ai-agents-data-engineering-teams/' }
+        ]
+      },
+      {
+        id: 'skills_reusable',
+        badge: 'Pillar 2 · Reusable Agent "Skills"',
+        title: 'Packaging Repeatable Workflows as Agent "Skills"',
+        summary: 'From your PDF roadmap: turning your DAG review checklists, SQL standards, and README templates into reusable agent instructions.',
+        problem: 'Re-explaining your table naming conventions, idempotency rules, and AWS cost checks in every chat prompt wastes time and produces inconsistent code.',
+        architecture: 'Create modular Markdown instruction files (Skills) that your AI coding assistant loads automatically for specific tasks—such as reviewing an Airflow DAG for idempotency, auditing a Terraform S3 config for least-privilege IAM, or generating dbt edge-case tests.',
+        codeSnippet: `---
+name: airflow-dag-production-review
+description: Reviews Airflow DAGs for idempotency, retries, and XCom safety.
+---
+1. Verify every task is strictly idempotent for backfill date partitions.
+2. Flag any DataFrame or payload >48KB passed via XCom (use S3/Iceberg staging instead).
+3. Ensure default_args includes retries >= 2 and exponential_backoff = True.`,
+        links: [
+          { label: 'Agentic Data Engineering 2026 Guide', url: 'https://dev.to/gabrielhca/agentic-data-engineering-in-2026-how-to-build-pipelines-that-ai-agents-can-actually-use-4kgg' }
+        ]
+      },
+      {
+        id: 'self_healing',
+        badge: 'Pillar 3 · Autonomous Maintenance',
+        title: '3-Tier AI Automation & Self-Healing Triage (LangGraph / CrewAI)',
+        summary: 'Moving from Tier-1 code autocomplete to Tier-3 semi-autonomous pipeline triage and anomaly detection.',
+        problem: 'A pipeline job that crashes is obvious, but a job that succeeds while producing corrupted numbers silently poisons executive dashboards and downstream AI models.',
+        architecture: 'Combine Great Expectations / Soda anomaly detection with multi-agent frameworks (LangGraph or CrewAI). When a data quality check or DAG fails, the triage agent pulls OpenLineage metadata + error logs, identifies the upstream breaking change, and drafts a fix PR for human review.',
+        codeSnippet: `# 3 Tiers of AI in Data Engineering (2026 Industry Framework):
+# Tier 1: Copilot / Chat code generation (dbt models, PySpark, DAG boilerplate)
+# Tier 2: Workflow automation (Auto-syncing docs & lineage notes on commit)
+# Tier 3: Semi-autonomous agents (Anomaly detection + log root-cause PRs)`,
+        links: [
+          { label: 'Best AI Agents for Data Engineering 2026 (Rework)', url: 'https://resources.rework.com/tools/ai-agents/best-ai-agents-for-data-engineering-2026' },
+          { label: 'PyCon DE 2026: LangGraph & MCP Systems', url: 'https://www.youtube.com/watch?v=rJKBnHYicQA' }
+        ]
+      },
+      {
+        id: 'semantic_sql',
+        badge: 'Pillar 4 · Governed GenBI',
+        title: 'Platform-Native Agents (Genie, CoCo) & Semantic Text-to-SQL',
+        summary: 'Preventing silent metric hallucinations with dbt Semantic Layer, Databricks Genie Code, and Snowflake Cortex.',
+        problem: 'Per dbt Labs’ 2026 survey, 71% of practitioners cite incorrect or hallucinated outputs reaching stakeholders silently as their #1 concern.',
+        architecture: 'Ground Text-to-SQL agents in certified semantic definitions (dbt Semantic Layer / MetricFlow, Snowflake Cortex Analyst, or Databricks Genie) and enforce read-only MCP connections gated by upstream data quality checks.',
+        codeSnippet: `# Governed Metric Definition (dbt Semantic Layer)
+semantic_models:
+  - name: weekend_product_returns
+    model: ref('fct_order_returns')
+    measures:
+      - name: return_rate_pct
+        agg: average
+        expr: is_returned_flag`,
+        links: [
+          { label: 'Best AI Text-to-SQL Agents in 2026 Compared', url: 'https://www.sketricgen.ai/blog/best-ai-text-to-sql-agents' },
+          { label: 'dbt Semantic Layer Python SDK', url: 'https://docs.getdbt.com/docs/dbt-apis/sl-python' }
+        ]
+      }
+    ];
+
+    const PROMPT_VAULT = [
+      {
+        id: 'pv1',
+        badge: 'Strategy 1 · PySpark OOM & Skew Debugger (From Master Blueprint)',
+        title: 'Diagnosing Wide-Transformation OutOfMemory & Data Skew',
+        prompt: `I am encountering an OutOfMemory / Java Heap Space error in my PySpark script during a wide transformation join.\n\nHere is my transformation logic:\n[PASTE PYSPARK CODE]\n\nHere is the cluster configuration, table sizes, and EXPLAIN plan:\n[PASTE CONFIG & EXPLAIN PLAN]\n\nAnalyze the execution plan for potential data skew, explain WHY a broadcast join, Adaptive Query Execution (AQE), or key salting is appropriate here, and guide me step-by-step to eliminate the memory bottleneck.`
+      },
+      {
+        id: 'pv2',
+        badge: 'Strategy 2 · Docker & Terraform IaC Scaffolder (From Master Blueprint)',
+        title: 'Production Docker Compose & AWS Infrastructure Review',
+        prompt: `Generate and review a clean docker-compose.yml file for a 32GB RAM local workstation that spins up:\n1. PostgreSQL 15 with persistent volume storage and custom initialization scripts.\n2. Apache Airflow 2.8+ using Local/Celery Executor with PostgreSQL as the metadata database.\nEnsure health checks, least-privilege environment variables, network isolation, and memory limits are specified—and explain each configuration choice.`
+      },
+      {
+        id: 'pv3',
+        badge: 'Strategy 3 · Principal Data Quality Edge-Case Generator (From Blueprint)',
+        title: 'Generating 10 Production Corruption Scenarios + dbt / Soda Tests',
+        prompt: `Here is my target table schema for customer orders / financial transactions:\n[PASTE SQL / DBT SCHEMA]\n\nAct as a Principal Data Quality Engineer at a top product company. List 10 realistic edge cases and silent data corruptions this pipeline could encounter in production (e.g., negative currencies, null foreign keys, timezone drift, duplicate transaction IDs within milliseconds, late-arriving records). Provide dbt schema test assertions and Great Expectations / Soda checks to catch them automatically.`
+      },
+      {
+        id: 'pv4',
+        badge: 'Strategy 4 · Anti-Copy-Paste SQL/Python Pattern Builder (From PDF Roadmap)',
+        title: 'Post-Solve Variation & Interview Follow-Up Simulator',
+        prompt: `I just solved this SQL / Python data engineering problem on my own:\n\nProblem: [PASTE PROBLEM]\nMy Working Solution:\n[PASTE YOUR CODE]\n\n1. Generate 2–3 alternative ways to solve this (e.g., Window Function vs. Self-Join vs. CTE, or Generator vs. Pandas/Polars) and explain the CPU/Memory trade-offs of each at 100M rows.\n2. Ask me 2 tough follow-up questions a senior Amazon or Netflix interviewer would ask about my solution.`
+      }
+    ];
+
+    const AGENTIC_AUDIT_ITEMS = [
+      { id: 'a1', title: 'Enforce Rich Column Descriptions in Catalog/dbt', desc: 'Agents rely on column docstrings and enum examples to disambiguate schema semantics without guessing.' },
+      { id: 'a2', title: 'Default MCP Database Servers to Read-Only & Scoped Roles', desc: 'Never expose superuser or DDL/DML write credentials to an exploratory or Text-to-SQL agent.' },
+      { id: 'a3', title: 'Package Recurring Reviews as Reusable Agent "Skills"', desc: 'Maintain standard prompt/skill files for Airflow DAG reviews, IaC checks, and README formatting.' },
+      { id: 'a4', title: 'Gate Agent Consumption Behind Write-Audit-Publish (WAP) Checks', desc: 'Run Great Expectations or Soda checkpoints before publishing tables so agents never reason over corrupted data.' },
+      { id: 'a5', title: 'Route KPI Queries Through a Semantic Layer', desc: 'Bind revenue, churn, and return rate metrics in dbt Semantic Layer / Cortex / Genie rather than ad-hoc LLM SQL joins.' },
+      { id: 'a6', title: 'Add Incremental Embedding & Metadata Sync to One Pipeline', desc: 'Attach structured primary keys and timestamps as metadata payloads on vector chunks in Qdrant, Milvus, or pgvector.' },
+      { id: 'a7', title: 'Verify Cloud Pricing & Service Limits Against Official Docs', desc: 'Never trust raw LLM claims on AWS Glue/Redshift pricing or quotas without checking current AWS documentation.' },
+      { id: 'a8', title: 'Require Human-in-the-Loop PR Approval for Self-Healing Code Changes', desc: 'Have autonomous triage agents open tested GitHub PRs with diff explanations rather than auto-deploying to prod.' }
+    ];
+
+    // ============================================================================
+    // 3. FAANG, FINTECH & AWS ARCHITECTURAL BLUEPRINTS DATA
+    // ============================================================================
+    const BLUEPRINTS = {
+      netflix: {
+        name: 'Netflix / Uber Hyperscale Streaming Lakehouse',
+        subtitle: 'Designed for 700B–2T+ daily events, petabyte S3 storage, and multi-engine compute (Kafka -> Flink -> Iceberg -> Spark/Trino).',
+        sourceUrl: 'https://factorhouse.io/resources/iceberg/use-cases/netflix/',
+        sourceLabel: 'Netflix Iceberg & Kafka Production Architecture (2026)',
+        nodes: [
+          {
+            id: 'n1',
+            step: '1. Ingestion Backbone',
+            tech: 'Apache Kafka (Keystone)',
+            role: 'Ingests 700B+ to 2T daily microservice & playback telemetry events with high availability.',
+            interviewQ: 'How do you handle hot partitions in Kafka when a single viral event causes 100x traffic on one key?',
+            answer: 'Use composite/salted partition keys or custom partitioners for stateless aggregation, followed by a two-stage Flink aggregation (local pre-aggregation by salted key, then global merge) to prevent single-broker disk/network saturation.',
+            url: 'https://factorhouse.io/articles/netflix-kafka-architecture/'
+          },
+          {
+            id: 'n2',
+            step: '2. Stream Processing',
+            tech: 'Apache Flink',
+            role: 'Stateful stream enrichment, session windowing, real-time distributed graph updates, and Iceberg sink.',
+            interviewQ: 'Why did Netflix choose Apache Flink for real-time stream processing and how do checkpoints work?',
+            answer: 'Flink provides true low-latency event-at-a-time processing, accurate Event-Time watermarks, and asynchronous incremental RocksDB checkpoints via Chandy-Lamport barriers without stopping the stream.',
+            url: 'https://netflixtechblog.com/how-and-why-netflix-built-a-real-time-distributed-graph-part-1-ingesting-and-processing-data-80113e124acc'
+          },
+          {
+            id: 'n3',
+            step: '3. Lakehouse Storage',
+            tech: 'Apache Iceberg on S3',
+            role: 'Single source of truth with ACID snapshots, hidden partitioning, and multi-engine isolation.',
+            interviewQ: 'Why did Netflix invent Apache Iceberg to replace Apache Hive on S3?',
+            answer: 'Hive tracked partitions at the directory level (requiring slow S3 LIST operations and unsafe rewrites). Iceberg tracks individual files via an immutable tree of Manifest Lists and Manifests, enabling atomic O(1) snapshot commits, schema evolution, and hidden partitioning.',
+            url: 'https://factorhouse.io/resources/iceberg/use-cases/netflix/'
+          },
+          {
+            id: 'n4',
+            step: '4. Batch & Interactive SQL',
+            tech: 'Apache Spark 4.x + Trino',
+            role: 'Spark runs heavy petabyte ML/ETL joins (with AQE); Trino serves interactive ad-hoc federated SQL.',
+            interviewQ: 'A 10TB Spark join is failing with OutOfMemory / Disk Spill on 1 task out of 2,000 (99% complete). How do you fix it?',
+            answer: 'Diagnose Data Skew in the Spark UI (max task duration/bytes >> median). Enable Spark Adaptive Query Execution (spark.sql.adaptive.skewJoin.enabled=true), filter out NULL keys, broadcast small dimension tables, or apply key salting.',
+            url: 'https://www.techinterview.net/blog/mastering-apache-spark-faang-playbook'
+          },
+          {
+            id: 'n5',
+            step: '5. Orchestration & Agents',
+            tech: 'Maestro / Dagster + MCP Agents',
+            role: 'Schedules 100k+ workflows, tracks OpenLineage, and runs autonomous data quality & triage agents.',
+            interviewQ: 'How do you prevent corrupted data from polluting downstream executive tables and AI agents?',
+            answer: 'Use the Write-Audit-Publish (WAP) pattern on Apache Iceberg branches: write to a staging branch, run Great Expectations / Soda anomaly checks, and atomically fast-forward the main branch pointer only if all checks pass.',
+            url: 'https://www.techinterview.net/blog/netflix-data-engineer-interview-guide'
+          }
+        ]
+      },
+      fintech: {
+        name: 'Stripe / Tier-1 Fintech Zero-Loss Ledger & Real-Time Fraud Stack',
+        subtitle: 'Designed for strict ACID auditability, zero duplicate charges, sub-second fraud scoring, and T+0/T+1 reconciliation.',
+        sourceUrl: 'https://debezium.io/documentation/reference/stable/index.html',
+        sourceLabel: 'Debezium CDC + Flink + ClickHouse / Iceberg Pattern',
+        nodes: [
+          {
+            id: 'f1',
+            step: '1. Log-Based CDC',
+            tech: 'Postgres WAL + Debezium',
+            role: 'Captures every row-level payment state transition directly from the transactional Write-Ahead Log.',
+            interviewQ: 'Why must a Fintech pipeline use Log-Based CDC (Debezium) instead of timestamp polling (WHERE updated_at > X)?',
+            answer: 'Timestamp polling misses intermediate state transitions (e.g., PENDING -> FAILED -> RETRIED between polls), misses hard deletes, and adds read load to the primary payment DB. WAL tailing captures 100% of ordered changes non-invasively.',
+            url: 'https://debezium.io/documentation/reference/stable/index.html'
+          },
+          {
+            id: 'f2',
+            step: '2. Durable Event Bus',
+            tech: 'Apache Kafka (acks=all)',
+            role: 'Immutable ordered log partitioned by account_id with Schema Registry Protobuf enforcement.',
+            interviewQ: 'How do you guarantee zero message loss and no duplicate events in a Kafka payment topic?',
+            answer: 'Configure producer enable.idempotence=true, acks=all, and broker min.insync.replicas=2. Partition by account_id or ledger_entry_id to preserve strict causal ordering per customer.',
+            url: 'https://kafka.apache.org/documentation/'
+          },
+          {
+            id: 'f3',
+            step: '3. Exact-Once Stream Processor',
+            tech: 'Apache Flink (RocksDB State)',
+            role: 'Computes real-time velocity features (e.g., 5-min card declines) and executes two-phase commit sinks.',
+            interviewQ: 'What happens if a payment settlement event arrives 2 hours late due to a bank network outage?',
+            answer: 'Use Event-Time processing with bounded-out-of-orderness Watermarks, configure allowedLateness on the window, and route ultra-late events to a Flink Side Output that triggers an incremental ledger reconciliation update.',
+            url: 'https://flink.apache.org/'
+          },
+          {
+            id: 'f4',
+            step: '4. Real-Time Risk OLAP',
+            tech: 'ClickHouse',
+            role: 'Serves sub-50ms fraud investigation queries, live risk dashboards, and merchant analytics.',
+            interviewQ: 'How do you handle deduplication of upserted CDC events in ClickHouse?',
+            answer: 'Use ReplacingMergeTree(version_column) or CollapsingMergeTree with sign (+1/-1) columns, combined with FINAL or materialized aggregation views for deterministic real-time balances.',
+            url: 'https://clickhouse.com/blog/clickhouse-airflow-provider'
+          },
+          {
+            id: 'f5',
+            step: '5. Immutable Audit Lakehouse',
+            tech: 'Apache Iceberg + dbt + Soda',
+            role: 'Append-only double-entry ledger tables with time-travel regulatory audits and 3-way reconciliation.',
+            interviewQ: 'How do you design a financial table so balances are never corrupted by partial pipeline failures?',
+            answer: 'Never UPDATE an account balance column in place. Store an append-only double-entry journal (debit_account, credit_account, amount_cents, idempotency_key) and verify daily that SUM(debits) == SUM(credits) via Soda/GX.',
+            url: 'https://iceberg.apache.org/'
+          }
+        ]
+      },
+      aws_medallion: {
+        name: 'AWS Cloud Lakehouse & ELT Blueprint (From Your PDF & Master Blueprint)',
+        subtitle: 'Focused AWS stack: API / Kinesis -> S3 Medallion (Bronze/Silver/Gold) -> Glue / PySpark -> Redshift & Athena -> Airflow + GX/Soda.',
+        sourceUrl: 'https://aws.amazon.com/certification/certified-data-engineer-associate/',
+        sourceLabel: 'AWS Certified Data Engineer – Associate Architecture',
+        nodes: [
+          {
+            id: 'aw1',
+            step: '1. Ingestion & Compute Trigger',
+            tech: 'Python API / Kinesis + AWS Lambda',
+            role: 'Extracts public APIs or event streams and lands raw payloads into S3 Bronze with IAM least-privilege roles.',
+            interviewQ: 'When would you choose AWS Lambda vs. AWS Glue for a data ingestion or transformation job?',
+            answer: 'Use AWS Lambda for lightweight, short-lived (<15 min, <10GB RAM) event-driven API pulls or file triggers. Use AWS Glue (serverless Spark/Ray) for heavy distributed multi-gigabyte joins, Parquet compaction, and catalog-backed ETL.',
+            url: 'https://aws.amazon.com/certification/certified-data-engineer-associate/'
+          },
+          {
+            id: 'aw2',
+            step: '2. Medallion Lake Storage',
+            tech: 'Amazon S3 (Bronze / Silver / Gold)',
+            role: 'Stores raw JSON/CSV in Bronze, deduplicated partitioned Parquet/Iceberg in Silver, and business aggregates in Gold.',
+            interviewQ: 'How do you partition S3 paths so AWS Athena queries cost pennies instead of ratusan dollars?',
+            answer: 'Use Hive-style date prefixes (s3://bucket/silver/orders/year=2026/month=10/day=23/), compress Parquet with Zstd, compact small files to 128MB–512MB, and enable Partition Projection in Glue/Athena.',
+            url: 'https://github.com/ABZ-Aaron/Reddit-API-Pipeline'
+          },
+          {
+            id: 'aw3',
+            step: '3. Catalog & Distributed ETL',
+            tech: 'AWS Glue + PySpark / Databricks',
+            role: 'Crawls schemas into the Glue Data Catalog and runs PySpark schema enforcement and deduplication.',
+            interviewQ: 'How do you handle duplicate records when retrying an AWS Glue or PySpark batch job for a specific date?',
+            answer: 'Make the job strictly idempotent: either overwrite the target S3 date partition atomically (insert_overwrite / Iceberg dynamic partition overwrite) or perform a deterministic MERGE on the primary business key.',
+            url: 'https://spark.apache.org/docs/latest/'
+          },
+          {
+            id: 'aw4',
+            step: '4. Warehouse & Serverless SQL',
+            tech: 'Amazon Redshift + AWS Athena + dbt',
+            role: 'Athena queries S3 directly for ad-hoc exploration; Redshift + dbt power conformed Star Schema marts.',
+            interviewQ: 'How do you choose Redshift DISTKEY and SORTKEY for a 5-billion-row e-commerce orders fact table?',
+            answer: 'Set the DISTKEY on the high-cardinality foreign key most frequently joined with large dimensions (e.g., customer_id) to co-locate join slices and avoid network redistribution; set the SORTKEY on the timestamp column (order_date) for fast range pruning.',
+            url: 'https://docs.getdbt.com/'
+          },
+          {
+            id: 'aw5',
+            step: '5. Orchestration & Quality Gate',
+            tech: 'Apache Airflow + Great Expectations / Soda',
+            role: 'Schedules end-to-end DAGs, handles retries/alerts, and validates data before exposing to BI or MCP Agents.',
+            interviewQ: 'What happens if your Airflow DAG succeeds technically, but the upstream API returned 0 rows or NULL prices?',
+            answer: 'Embed a Great Expectations or Soda check task immediately after staging/transformation (checking row count > threshold and not_null/positive constraints) that halts the DAG and alerts Slack before loading production marts.',
+            url: 'https://greatexpectations.io/'
+          }
+        ]
+      }
+    };
+
+    // ============================================================================
+    // 4. CAPSTONE PORTFOLIO PROJECTS DATA (COMBINING USER'S BLUEPRINTS + AGENTIC AI)
+    // ============================================================================
+    const CAPSTONE_PROJECTS = [
+      {
+        id: 'proj1',
+        tier: 'Project 1 · Week 7 Foundational Batch ELT (From PDF & Blueprint)',
+        title: 'Automated Cloud & Local Batch ELT Pipeline (API → S3/Postgres → dbt → Redshift/Athena → Airflow)',
+        targetRole: 'Junior / Mid Product-Company Data Engineer',
+        stack: ['Python', 'AWS S3', 'PostgreSQL / Redshift', 'dbt Core', 'Apache Airflow', 'Docker', 'Great Expectations / Soda', 'GitHub Actions'],
+        summary: 'Ingest real data from a public API (weather, stock, Reddit, or CoinGecko) → land raw in S3 / staging → transform into a Kimball Star Schema with dbt → orchestrate on a schedule with Airflow in Docker → enforce data quality checks.',
+        milestones: [
+          { id: 'p1_m1', text: 'Write modular OOP Python extractor with retry backoff landing raw JSON/Parquet into AWS S3 & local Postgres' },
+          { id: 'p1_m2', text: 'Build staging and Star Schema fact/dimension models (including SCD Type 2) in dbt' },
+          { id: 'p1_m3', text: 'Add dbt schema tests + Great Expectations / Soda validation checks for row volume and null/negative anomalies' },
+          { id: 'p1_m4', text: 'Orchestrate the full idempotent workflow in Dockerized Apache Airflow with failure alerting' },
+          { id: 'p1_m5', text: 'Add GitHub Actions CI (SQL linting + pytest) and publish a comprehensive README with architecture diagram' }
+        ]
+      },
+      {
+        id: 'proj2',
+        tier: 'Project 2 · Master Blueprint Medallion Lakehouse',
+        title: '10M+ Row Medallion Cloud Lakehouse (AWS S3, PySpark / Databricks, Iceberg/Delta & Athena)',
+        targetRole: 'Big Data & Cloud Lakehouse Engineer',
+        stack: ['AWS S3', 'PySpark', 'Databricks Free Edition', 'Apache Iceberg / Delta Lake', 'AWS Glue', 'AWS Athena', 'Polars / DuckDB'],
+        summary: 'Process a 10M+ row dataset (NYC Taxi or Kaggle E-Commerce) across Bronze (raw), Silver (cleaned, deduplicated, partitioned Parquet/Iceberg), and Gold (dimensional business KPIs), queried via serverless AWS Athena.',
+        milestones: [
+          { id: 'p2_m1', text: 'Land 10M+ raw records in AWS S3 Bronze bucket with least-privilege IAM roles' },
+          { id: 'p2_m2', text: 'Write PySpark job enforcing explicit StructType schemas, deduplicating records, and handling data skew' },
+          { id: 'p2_m3', text: 'Write partitioned Zstd Parquet / Apache Iceberg tables to S3 Silver and compact small files' },
+          { id: 'p2_m4', text: 'Build Gold dimensional aggregates and query them via serverless AWS Athena with partition pruning' },
+          { id: 'p2_m5', text: 'Benchmark single-node Polars + DuckDB vs. PySpark on a subset and document FinOps cost/speed trade-offs' }
+        ]
+      },
+      {
+        id: 'proj3',
+        tier: 'Project 3 · Week 8 Differentiator: Real-Time Event Streaming',
+        title: 'Near-Real-Time Event Streaming & Fintech Anomaly Detector (Kafka/Kinesis → Flink/Spark → Warehouse)',
+        targetRole: 'FAANG / Tier-1 Fintech Streaming Data Engineer',
+        stack: ['Apache Kafka / Kinesis', 'Debezium CDC', 'Apache Flink / Spark Streaming', 'ClickHouse / Redshift', 'Dead-Letter Queue (DLQ)'],
+        summary: 'Simulate high-throughput financial transactions & e-commerce events → stream through 3-partition Kafka (or Kinesis) → detect anomalies (> $10k fraud or weekend return spikes) → sink to Dead-Letter Queue, ClickHouse/Warehouse & business dashboard.',
+        milestones: [
+          { id: 'p3_m1', text: 'Build Python event generator or Debezium Postgres CDC producer streaming into multi-partition Kafka' },
+          { id: 'p3_m2', text: 'Implement stateful streaming consumer (Apache Flink or Spark Streaming) with Event-Time watermarks' },
+          { id: 'p3_m3', text: 'Route high-value fraud anomalies (> $10,000) and malformed payloads to an Alert Log / Dead-Letter Queue' },
+          { id: 'p3_m4', text: 'Sink micro-batched analytical records to S3 Iceberg / ClickHouse / Redshift with idempotency guarantees' },
+          { id: 'p3_m5', text: 'Build a focused dashboard answering one specific business question (e.g., weekend category return rates)' }
+        ]
+      },
+      {
+        id: 'proj4',
+        tier: 'Project 4 · 2026–2030 Edge: Agentic AI Data Platform',
+        title: 'Autonomous MCP Server, Semantic Text-to-SQL & Self-Healing Pipeline Triage Agent',
+        targetRole: 'AI-Native Data Engineer / Platform Engineer',
+        stack: ['Model Context Protocol (MCP)', 'LangGraph / CrewAI', 'dbt Semantic Layer', 'OpenLineage', 'Qdrant / Milvus / pgvector'],
+        summary: 'Make your Project 1–3 pipelines "Agent-Ready": expose a read-only MCP Server over your warehouse + vector store, define governed metrics so Text-to-SQL never hallucinates, and build an agent that triages DAG failures.',
+        milestones: [
+          { id: 'p4_m1', text: 'Build a custom Python MCP Server exposing read-only SQL execution, schema inspection, and DAG status tools' },
+          { id: 'p4_m2', text: 'Define governed business KPIs in dbt Semantic Layer and connect a Text-to-SQL agent with zero join hallucinations' },
+          { id: 'p4_m3', text: 'Extend your batch pipeline to chunk & embed unstructured docs into pgvector / Qdrant / Milvus with metadata IDs' },
+          { id: 'p4_m4', text: 'Build a LangGraph / CrewAI triage agent that summarizes Airflow/dbt failure logs and drafts a root-cause PR' },
+          { id: 'p4_m5', text: 'Package your DAG review & README standards as reusable Agent "Skills" in your GitHub repository' }
+        ]
+      }
+    ];
+
+    // ============================================================================
+    // 5. STATE MANAGEMENT & PERSISTENCE (SAFE LOCALSTORAGE)
+    // ============================================================================
+    const STORAGE_KEY = 'faang_fintech_aws_de_tracker_2026_v2';
+
+    let appState = {
+      activeTab: 'sprint',
+      roleLens: 'all',
+      phaseFilter: 'all',
+      statusFilter: 'all',
+      searchQuery: '',
+      selectedPillarId: 'mcp',
+      selectedBlueprint: 'netflix',
+      selectedNodeIndex: 0,
+      studyHoursPerWeek: 35,
+      day1Checked: {},
+      weeklySprintChecked: {},
+      skillProgress: {},
+      customSkills: [],
+      agenticAuditChecked: {},
+      projectMilestonesChecked: {}
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          appState = Object.assign({}, appState, parsed);
+        }
+      } catch (e) {
+        // Fallback to in-memory state if sandboxed localStorage is restricted
+      }
+      getAllSkills().forEach(skill => {
+        if (!appState.skillProgress[skill.id]) {
+          appState.skillProgress[skill.id] = {
+            status: 0,
+            checkedSubtasks: (skill.subtasks || []).map(() => false),
+            notes: '',
+            proofUrl: '',
+            expanded: false
+          };
+        }
+      });
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        // Ignore storage errors in restricted iframe modes
+      }
+    }
+
+    function getAllSkills() {
+      return INITIAL_SKILLS.concat(appState.customSkills || []);
+    }
+
+    function showToast(message, type) {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+      const toast = document.createElement('div');
+      const borderColor = type === 'emerald' ? 'border-emerald-500/50 text-emerald-200' : 'border-cyan-500/50 text-cyan-200';
+      toast.className = `px-4 py-2.5 rounded-xl bg-slate-900/95 border ${borderColor} shadow-xl text-xs font-medium transition-all duration-300 pointer-events-auto`;
+      toast.textContent = message;
+      container.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 2600);
+    }
+
+    function copyTextToClipboard(text, successMsg) {
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text);
+        } else {
+          const temp = document.createElement('textarea');
+          temp.value = text;
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          temp.remove();
+        }
+        showToast(successMsg || 'Copied to clipboard!', 'emerald');
+      } catch (e) {
+        const temp = document.createElement('textarea');
+        temp.value = text;
+        document.body.appendChild(temp);
+        temp.select();
+        document.execCommand('copy');
+        temp.remove();
+        showToast(successMsg || 'Copied to clipboard!', 'emerald');
+      }
+    }
+
+    // ============================================================================
+    // 6. COMPUTED METRICS & READINESS CALCULATIONS
+    // ============================================================================
+    const STATUS_WEIGHTS = { 0: 0, 1: 0.35, 2: 0.75, 3: 1.0 };
+    const STATUS_LABELS = { 0: 'Not Started', 1: 'Learning', 2: 'Built PoC', 3: 'Mastered' };
+
+    function computeMetrics() {
+      const allSkills = getAllSkills();
+      const lensSkills = allSkills.filter(s => appState.roleLens === 'all' || (s.tracks && s.tracks.includes(appState.roleLens)));
+
+      let totalWeightedHours = 0;
+      let completedWeightedHours = 0;
+      let counts = { 0: 0, 1: 0, 2: 0, 3: 0 };
+      let xp = 0;
+
+      lensSkills.forEach(skill => {
+        const prog = appState.skillProgress[skill.id] || { status: 0, checkedSubtasks: [] };
+        const st = prog.status || 0;
+        counts[st] = (counts[st] || 0) + 1;
+
+        const subCount = (skill.subtasks || []).length;
+        const checkedCount = (prog.checkedSubtasks || []).filter(Boolean).length;
+        const subRatio = subCount > 0 ? checkedCount / subCount : 0;
+        const effectiveWeight = Math.max(STATUS_WEIGHTS[st], subRatio * 0.7);
+
+        totalWeightedHours += skill.hours;
+        completedWeightedHours += skill.hours * (st === 3 ? 1.0 : effectiveWeight);
+        xp += Math.round(st * 120 + checkedCount * 25 + (prog.proofUrl ? 50 : 0));
+      });
+
+      const day1Count = Object.values(appState.day1Checked || {}).filter(Boolean).length;
+      const weekCount = Object.values(appState.weeklySprintChecked || {}).filter(Boolean).length;
+      const auditCount = Object.values(appState.agenticAuditChecked || {}).filter(Boolean).length;
+      const projCount = Object.values(appState.projectMilestonesChecked || {}).filter(Boolean).length;
+
+      xp += day1Count * 35 + weekCount * 100 + auditCount * 40 + projCount * 80;
+
+      // Blend skill completion with sprint & project completion for a motivating global readiness %
+      const skillRatio = totalWeightedHours > 0 ? (completedWeightedHours / totalWeightedHours) : 0;
+      const sprintRatio = (day1Count + weekCount) / 12;
+      const blendedPercent = Math.min(100, Math.round((skillRatio * 0.8 + sprintRatio * 0.2) * 100));
+      const remainingHours = Math.max(0, Math.round(totalWeightedHours - completedWeightedHours));
+
+      let rank = 'L1 Novice Explorer';
+      if (blendedPercent >= 85) rank = 'L6 Staff / FAANG Ready';
+      else if (blendedPercent >= 65) rank = 'L5 Senior DE Ready';
+      else if (blendedPercent >= 40) rank = 'L4 Product DE Ready';
+      else if (blendedPercent >= 15) rank = 'L3 Pipeline Builder';
+
+      return {
+        totalSkills: lensSkills.length,
+        masteredCount: counts[3],
+        counts,
+        percent: blendedPercent,
+        xp,
+        rank,
+        remainingHours,
+        day1Count,
+        weekCount,
+        auditCount,
+        projCount
+      };
+    }
+
+    function computePhaseProgress(phaseId) {
+      const skills = getAllSkills().filter(s => s.phase === phaseId && (appState.roleLens === 'all' || (s.tracks && s.tracks.includes(appState.roleLens))));
+      if (skills.length === 0) return { percent: 0, done: 0, total: 0 };
+      let sum = 0;
+      let done = 0;
+      skills.forEach(s => {
+        const prog = appState.skillProgress[s.id] || { status: 0, checkedSubtasks: [] };
+        const st = prog.status || 0;
+        const subCount = (s.subtasks || []).length;
+        const checkedCount = (prog.checkedSubtasks || []).filter(Boolean).length;
+        const subRatio = subCount > 0 ? checkedCount / subCount : 0;
+        sum += st === 3 ? 1.0 : Math.max(STATUS_WEIGHTS[st], subRatio * 0.7);
+        if (st >= 2) done++;
+      });
+      return {
+        percent: Math.round((sum / skills.length) * 100),
+        done,
+        total: skills.length
+      };
+    }
+
+    // ============================================================================
+    // 7. RENDER FUNCTIONS
+    // ============================================================================
+    function renderHeaderAndStats() {
+      const m = computeMetrics();
+      document.getElementById('headerPercentText').textContent = `${m.percent}%`;
+      document.getElementById('headerProgressBar').style.width = `${m.percent}%`;
+      document.getElementById('headerRankText').textContent = `${m.xp.toLocaleString()} XP · ${m.rank}`;
+
+      document.getElementById('navBadgeSprint').textContent = `${m.day1Count + m.weekCount}/12`;
+      document.getElementById('navBadgeSkills').textContent = `${m.counts[2] + m.counts[3]}/${m.totalSkills}`;
+      document.getElementById('navBadgeProjects').textContent = `${m.projCount}/20`;
+
+      document.getElementById('statNotStarted').textContent = m.counts[0];
+      document.getElementById('statLearning').textContent = m.counts[1];
+      document.getElementById('statBuilt').textContent = m.counts[2];
+      document.getElementById('statMastered').textContent = m.counts[3];
+
+      const lensMap = {
+        all: 'Showing full 6-phase progression from zero experience to FAANG/Fintech, AWS & Agentic AI readiness.',
+        aws_sprint: 'Filtered for your 8-Week AWS + Product Company Sprint (Jan Start): Python, SQL, dbt, Airflow, PySpark, AWS Stack & MCP.',
+        faang: 'Filtered for Hyperscale FAANG (Netflix, Uber, Airbnb, Amazon): Petabyte Iceberg, Spark AQE, Kafka, Flink & Trino.',
+        fintech: 'Filtered for Tier-1 Fintech (Stripe, Robinhood, Citadel): Zero-loss Debezium CDC, Flink exact-once, ClickHouse & Ledger audits.',
+        agentic: 'Filtered for AI-Native & Agentic Data Engineering: MCP Servers, Reusable Skills, LangGraph, Genie/CoCo & Vector ETL.'
+      };
+      document.getElementById('activeLensDescription').textContent = lensMap[appState.roleLens] || lensMap.all;
+    }
+
+    function renderSprintTab() {
+      const day1Grid = document.getElementById('day1ChecklistGrid');
+      const weekGrid = document.getElementById('weeklySprintGrid');
+      if (!day1Grid || !weekGrid) return;
+
+      const day1Done = DAY1_TASKS.filter(t => appState.day1Checked && appState.day1Checked[t.id]).length;
+      document.getElementById('day1ProgressBadge').textContent = `${day1Done} / ${DAY1_TASKS.length} Completed`;
+
+      day1Grid.innerHTML = DAY1_TASKS.map(t => {
+        const checked = Boolean(appState.day1Checked && appState.day1Checked[t.id]);
+        return `
+          <label class="flex items-start gap-3 p-3.5 rounded-xl border ${checked ? 'bg-emerald-500/10 border-emerald-500/40' : 'bg-slate-900/85 border-slate-800'} cursor-pointer hover:border-emerald-400/50 transition">
+            <input type="checkbox" data-day1-id="${t.id}" ${checked ? 'checked' : ''} class="mt-1 rounded border-slate-600 text-emerald-500 focus:ring-emerald-500 cursor-pointer" />
+            <div>
+              <div class="text-xs sm:text-sm font-bold ${checked ? 'line-through text-emerald-200' : 'text-white'}">${t.title}</div>
+              <p class="text-xs text-slate-400 mt-0.5">${t.desc}</p>
+            </div>
+          </label>
+        `;
+      }).join('');
+
+      day1Grid.querySelectorAll('[data-day1-id]').forEach(chk => {
+        chk.addEventListener('change', () => {
+          const id = chk.getAttribute('data-day1-id');
+          appState.day1Checked[id] = chk.checked;
+          saveState();
+          renderSprintTab();
+          renderHeaderAndStats();
+          if (chk.checked) showToast('Day 1 setup milestone complete! (+35 XP)', 'emerald');
+        });
+      });
+
+      const weeksDone = WEEKLY_SPRINT.filter(w => appState.weeklySprintChecked && appState.weeklySprintChecked[w.id]).length;
+      document.getElementById('weeklySprintBadge').textContent = `${weeksDone} / ${WEEKLY_SPRINT.length} Weeks Done`;
+
+      weekGrid.innerHTML = WEEKLY_SPRINT.map(w => {
+        const checked = Boolean(appState.weeklySprintChecked && appState.weeklySprintChecked[w.id]);
+        return `
+          <div class="p-4 rounded-xl border ${checked ? 'bg-cyan-500/10 border-cyan-500/40' : 'bg-slate-900/85 border-slate-800'} flex flex-col justify-between gap-3 transition">
+            <div class="space-y-2">
+              <div class="flex items-center justify-between gap-2">
+                <span class="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">${w.week}</span>
+                <label class="flex items-center gap-1.5 text-xs font-semibold ${checked ? 'text-emerald-300' : 'text-slate-300'} cursor-pointer">
+                  <input type="checkbox" data-week-id="${w.id}" ${checked ? 'checked' : ''} class="rounded border-slate-600 text-cyan-500 focus:ring-cyan-500 cursor-pointer" />
+                  <span>${checked ? 'Completed' : 'Mark Week Done'}</span>
+                </label>
+              </div>
+              <h4 class="text-sm sm:text-base font-bold ${checked ? 'line-through text-slate-400' : 'text-white'}">${w.title}</h4>
+              <p class="text-xs text-slate-300"><strong>Core Focus:</strong> ${w.focus}</p>
+              <p class="text-xs text-emerald-300/90"><strong>Weekly Deliverable:</strong> ${w.deliverable}</p>
+              <div class="p-2.5 rounded-lg bg-slate-950/90 border border-slate-800 text-[11px] text-purple-200">
+                <strong class="text-purple-300">AI Leverage Tip:</strong> ${w.aiTip}
+              </div>
+            </div>
+            <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-[11px] font-mono text-slate-400">+100 XP on completion</span>
+              <a href="${w.url}" target="_blank" rel="noopener noreferrer" class="text-xs font-medium text-cyan-400 hover:text-cyan-300 underline">${w.urlLabel} ↗</a>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      weekGrid.querySelectorAll('[data-week-id]').forEach(chk => {
+        chk.addEventListener('change', () => {
+          const id = chk.getAttribute('data-week-id');
+          appState.weeklySprintChecked[id] = chk.checked;
+          saveState();
+          renderSprintTab();
+          renderHeaderAndStats();
+          if (chk.checked) showToast('Weekly Sprint milestone completed! (+100 XP)', 'emerald');
+        });
+      });
+    }
+
+    function renderPhaseSummaryCards() {
+      const grid = document.getElementById('phaseSummaryGrid');
+      if (!grid) return;
+      grid.innerHTML = PHASES.map(p => {
+        const stats = computePhaseProgress(p.id);
+        const isSelected = appState.phaseFilter === p.id;
+        const activeBorder = isSelected ? 'border-cyan-400 bg-cyan-500/10' : 'border-slate-800 bg-slate-900/75 hover:border-slate-700';
+        return `
+          <button type="button" data-phase-card="${p.id}" class="phase-card-btn text-left p-3.5 rounded-xl border transition flex flex-col justify-between ${activeBorder}">
+            <div>
+              <div class="flex items-center justify-between gap-1">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-cyan-400 font-semibold">${p.short}</span>
+                <span class="text-xs font-mono font-bold text-white">${stats.percent}%</span>
+              </div>
+              <div class="text-xs font-bold text-slate-100 mt-1 line-clamp-1">${p.name.replace(/^Phase \d: /, '')}</div>
+              <p class="text-[11px] text-slate-400 mt-0.5 line-clamp-2">${p.desc}</p>
+            </div>
+            <div class="mt-3">
+              <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-cyan-500 to-emerald-400 transition-all duration-300" style="width: ${stats.percent}%"></div>
+              </div>
+              <div class="text-[10px] font-mono text-slate-400 mt-1">${stats.done}/${stats.total} built or mastered</div>
+            </div>
+          </button>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('.phase-card-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const clickedPhase = btn.getAttribute('data-phase-card');
+          appState.phaseFilter = appState.phaseFilter === clickedPhase ? 'all' : clickedPhase;
+          document.getElementById('phaseFilterSelect').value = appState.phaseFilter;
+          renderAll();
+        });
+      });
+    }
+
+    function renderSkillsList() {
+      const container = document.getElementById('skillsContainer');
+      if (!container) return;
+
+      const query = (appState.searchQuery || '').trim().toLowerCase();
+      const filtered = getAllSkills().filter(skill => {
+        if (appState.roleLens !== 'all' && skill.tracks && !skill.tracks.includes(appState.roleLens)) return false;
+        if (appState.phaseFilter !== 'all' && skill.phase !== appState.phaseFilter) return false;
+        const prog = appState.skillProgress[skill.id] || { status: 0 };
+        if (appState.statusFilter !== 'all' && String(prog.status) !== String(appState.statusFilter)) return false;
+        if (query) {
+          const hay = `${skill.title} ${skill.why} ${skill.companyContext} ${(skill.subtasks || []).join(' ')}`.toLowerCase();
+          if (!hay.includes(query)) return false;
+        }
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="glass-card rounded-2xl p-8 text-center space-y-3">
+            <div class="text-base font-bold text-white">No skills match your current filter criteria</div>
+            <p class="text-xs text-slate-400">Try clearing the search box or switching the Phase / Status / Target Lens filter back to "All".</p>
+          </div>
+        `;
+        return;
+      }
+
+      const groupedHtml = PHASES.map(phase => {
+        const phaseSkills = filtered.filter(s => s.phase === phase.id);
+        if (phaseSkills.length === 0) return '';
+
+        const cardsHtml = phaseSkills.map(skill => {
+          const prog = appState.skillProgress[skill.id] || { status: 0, checkedSubtasks: [], notes: '', proofUrl: '', expanded: false };
+          const st = prog.status || 0;
+
+          const priorityColors = {
+            'Must-Have': 'bg-rose-500/15 text-rose-300 border-rose-500/30',
+            'High-Leverage': 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+            'Cutting-Edge 2026': 'bg-purple-500/15 text-purple-300 border-purple-500/30'
+          };
+          const pBadge = priorityColors[skill.priority] || 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30';
+          const cardBorder = st === 3 ? 'border-emerald-500/50' : st === 2 ? 'border-cyan-500/40' : st === 1 ? 'border-amber-500/40' : 'border-slate-800';
+
+          const subtasksHtml = (skill.subtasks || []).map((sub, idx) => {
+            const isChecked = Boolean(prog.checkedSubtasks && prog.checkedSubtasks[idx]);
+            return `
+              <label class="flex items-start gap-2.5 p-2 rounded-lg bg-slate-900/70 hover:bg-slate-900 border border-slate-800/80 cursor-pointer transition">
+                <input type="checkbox" data-skill-sub="${skill.id}" data-sub-idx="${idx}" ${isChecked ? 'checked' : ''} class="mt-0.5 rounded border-slate-600 text-cyan-500 focus:ring-cyan-500 cursor-pointer" />
+                <span class="text-xs ${isChecked ? 'line-through text-slate-500' : 'text-slate-200'} leading-snug">${sub}</span>
+              </label>
+            `;
+          }).join('');
+
+          const linksHtml = (skill.links || []).map(l => `
+            <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-md text-[11px] font-medium bg-slate-800/90 hover:bg-slate-700 text-cyan-300 border border-slate-700 transition">
+              <span>${l.label}</span>
+              <span>↗</span>
+            </a>
+          `).join('');
+
+          return `
+            <div class="glass-card glass-card-hover rounded-xl p-4 sm:p-5 border ${cardBorder} transition">
+              <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
+                <div class="space-y-1.5 flex-1">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <span class="px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider rounded border ${pBadge}">${skill.priority}</span>
+                    <span class="px-2 py-0.5 text-[10px] font-mono rounded bg-slate-800 text-slate-300">~${skill.hours} hrs</span>
+                    <span class="text-xs text-slate-400 font-medium">${skill.companyContext || ''}</span>
+                  </div>
+                  <h4 class="text-base sm:text-lg font-bold text-white">${skill.title}</h4>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">${skill.why}</p>
+                </div>
+
+                <!-- 4-State Interactive Status Selector -->
+                <div class="flex flex-col sm:items-end gap-2 shrink-0">
+                  <div class="inline-flex rounded-lg bg-slate-900 p-1 border border-slate-800" role="group" aria-label="Skill status">
+                    ${[0, 1, 2, 3].map(val => {
+                      const active = st === val;
+                      let activeClass = 'text-slate-400 hover:text-slate-200';
+                      if (active && val === 0) activeClass = 'bg-slate-700 text-white font-semibold shadow';
+                      if (active && val === 1) activeClass = 'bg-amber-500/25 text-amber-200 border border-amber-500/40 font-semibold';
+                      if (active && val === 2) activeClass = 'bg-cyan-500/25 text-cyan-200 border border-cyan-500/40 font-semibold';
+                      if (active && val === 3) activeClass = 'bg-emerald-500/25 text-emerald-200 border border-emerald-500/40 font-semibold';
+                      return `<button type="button" data-skill-status="${skill.id}" data-status-val="${val}" class="px-2.5 py-1 rounded-md text-[11px] transition ${activeClass}">${STATUS_LABELS[val]}</button>`;
+                    }).join('')}
+                  </div>
+                  <button type="button" data-toggle-notes="${skill.id}" class="text-[11px] font-mono text-slate-400 hover:text-cyan-300 transition">
+                    ${prog.expanded ? '▾ Hide Notes & GitHub Proof' : `▸ Notes & Proof ${prog.notes || prog.proofUrl ? '(Saved)' : ''}`}
+                  </button>
+                </div>
+              </div>
+
+              <!-- Subtasks Checklist -->
+              ${subtasksHtml ? `
+                <div class="mt-4 pt-3 border-t border-slate-800/80">
+                  <div class="text-[11px] font-mono uppercase tracking-wider text-slate-400 mb-2">Granular Mastery Checkpoints (Click to check off):</div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    ${subtasksHtml}
+                  </div>
+                </div>
+              ` : ''}
+
+              <!-- Portfolio Milestone & Grounded Resource Links -->
+              <div class="mt-3 pt-3 border-t border-slate-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="text-xs text-emerald-300/90">
+                  <strong class="font-semibold text-emerald-300">Hands-On Proof Milestone:</strong> ${skill.milestone || 'Build and document a working PoC repository.'}
+                </div>
+                <div class="flex flex-wrap items-center gap-1.5 shrink-0">
+                  ${linksHtml}
+                </div>
+              </div>
+
+              <!-- Expandable Personal Notes & Proof Drawer -->
+              <div id="notesDrawer-${skill.id}" class="${prog.expanded ? 'block' : 'hidden'} mt-3 pt-3 border-t border-slate-800 space-y-3 bg-slate-900/50 p-3 rounded-lg">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label class="block text-[11px] font-mono text-slate-400 mb-1">Personal Study Notes / Key Takeaways</label>
+                    <textarea data-note-input="${skill.id}" rows="2" placeholder="Write key formulas, commands, or interview reminders..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-slate-200 focus:outline-none focus:border-cyan-400">${prog.notes || ''}</textarea>
+                  </div>
+                  <div>
+                    <label class="block text-[11px] font-mono text-slate-400 mb-1">GitHub Repo / Notebook Proof URL</label>
+                    <input type="url" data-proof-input="${skill.id}" value="${prog.proofUrl || ''}" placeholder="https://github.com/yourname/de-mastery-2026" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2 text-xs text-cyan-300 focus:outline-none focus:border-cyan-400" />
+                    <button type="button" data-save-note="${skill.id}" class="mt-2 px-3 py-1.5 rounded-lg text-xs font-semibold bg-cyan-500/20 hover:bg-cyan-500/30 text-cyan-300 border border-cyan-500/30 transition">
+                      Save Note &amp; Proof (+50 XP)
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <div class="space-y-3 pt-2">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+              <div class="flex items-center gap-2">
+                <span class="px-2.5 py-1 text-xs font-mono font-bold uppercase rounded-md bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">${phase.short}</span>
+                <h3 class="text-base sm:text-lg font-bold text-white">${phase.name.replace(/^Phase \d: /, '')}</h3>
+              </div>
+              <span class="text-xs text-slate-400 hidden sm:inline">${phase.desc}</span>
+            </div>
+            <div class="space-y-3">
+              ${cardsHtml}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = groupedHtml;
+
+      container.querySelectorAll('[data-skill-status]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const skillId = btn.getAttribute('data-skill-status');
+          const val = parseInt(btn.getAttribute('data-status-val'), 10);
+          if (!appState.skillProgress[skillId]) {
+            appState.skillProgress[skillId] = { status: 0, checkedSubtasks: [], notes: '', proofUrl: '', expanded: false };
+          }
+          appState.skillProgress[skillId].status = val;
+          if (val === 3) {
+            const skillObj = getAllSkills().find(s => s.id === skillId);
+            if (skillObj && skillObj.subtasks) {
+              appState.skillProgress[skillId].checkedSubtasks = skillObj.subtasks.map(() => true);
+            }
+          }
+          saveState();
+          renderAll();
+          showToast(`Updated status to "${STATUS_LABELS[val]}"`, val === 3 ? 'emerald' : 'cyan');
+        });
+      });
+
+      container.querySelectorAll('[data-skill-sub]').forEach(chk => {
+        chk.addEventListener('change', () => {
+          const skillId = chk.getAttribute('data-skill-sub');
+          const idx = parseInt(chk.getAttribute('data-sub-idx'), 10);
+          const prog = appState.skillProgress[skillId];
+          if (!prog) return;
+          prog.checkedSubtasks[idx] = chk.checked;
+
+          const total = prog.checkedSubtasks.length;
+          const done = prog.checkedSubtasks.filter(Boolean).length;
+          if (done === total && total > 0 && prog.status < 2) {
+            prog.status = 2;
+            showToast('All checkpoints completed! Advanced to "Built PoC".', 'emerald');
+          } else if (done > 0 && prog.status === 0) {
+            prog.status = 1;
+          }
+          saveState();
+          renderAll();
+        });
+      });
+
+      container.querySelectorAll('[data-toggle-notes]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const skillId = btn.getAttribute('data-toggle-notes');
+          const prog = appState.skillProgress[skillId];
+          if (prog) {
+            prog.expanded = !prog.expanded;
+            saveState();
+            renderSkillsList();
+          }
+        });
+      });
+
+      container.querySelectorAll('[data-save-note]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const skillId = btn.getAttribute('data-save-note');
+          const noteEl = container.querySelector(`[data-note-input="${skillId}"]`);
+          const proofEl = container.querySelector(`[data-proof-input="${skillId}"]`);
+          if (appState.skillProgress[skillId]) {
+            appState.skillProgress[skillId].notes = noteEl ? noteEl.value : '';
+            appState.skillProgress[skillId].proofUrl = proofEl ? proofEl.value : '';
+            saveState();
+            renderHeaderAndStats();
+            showToast('Saved personal notes & proof link!', 'emerald');
+          }
+        });
+      });
+    }
+
+    // ============================================================================
+    // 8. RENDER AGENTIC AI & PROMPT VAULT TAB
+    // ============================================================================
+    function renderAgenticTab() {
+      const btnContainer = document.getElementById('agenticPillarButtons');
+      const detailContainer = document.getElementById('agenticPillarDetail');
+      const promptGrid = document.getElementById('promptVaultGrid');
+      const auditGrid = document.getElementById('agenticAuditGrid');
+      if (!btnContainer || !detailContainer || !auditGrid || !promptGrid) return;
+
+      btnContainer.innerHTML = AGENTIC_PILLARS.map(p => {
+        const isSelected = p.id === appState.selectedPillarId;
+        const cls = isSelected
+          ? 'border-purple-400 bg-purple-500/15 text-white shadow-lg shadow-purple-500/10'
+          : 'border-slate-800 bg-slate-900/75 text-slate-300 hover:border-slate-700';
+        return `
+          <button type="button" data-pillar-btn="${p.id}" class="w-full text-left p-4 rounded-xl border transition block ${cls}">
+            <div class="text-[10px] font-mono uppercase tracking-wider text-purple-300 font-semibold">${p.badge}</div>
+            <div class="text-sm sm:text-base font-bold text-white mt-0.5">${p.title}</div>
+            <p class="text-xs text-slate-400 mt-1">${p.summary}</p>
+          </button>
+        `;
+      }).join('');
+
+      btnContainer.querySelectorAll('[data-pillar-btn]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          appState.selectedPillarId = btn.getAttribute('data-pillar-btn');
+          saveState();
+          renderAgenticTab();
+        });
+      });
+
+      const activePillar = AGENTIC_PILLARS.find(p => p.id === appState.selectedPillarId) || AGENTIC_PILLARS[0];
+      detailContainer.innerHTML = `
+        <div class="space-y-4">
+          <div>
+            <span class="px-2.5 py-0.5 text-[11px] font-mono rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">${activePillar.badge}</span>
+            <h3 class="text-lg sm:text-xl font-bold text-white mt-2">${activePillar.title}</h3>
+          </div>
+          <div class="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30">
+            <div class="text-xs font-mono uppercase text-rose-300 font-semibold">The Legacy Bottleneck / Failure Mode</div>
+            <p class="text-xs sm:text-sm text-slate-200 mt-1">${activePillar.problem}</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+            <div class="text-xs font-mono uppercase text-emerald-300 font-semibold">2026 Production Architecture Pattern</div>
+            <p class="text-xs sm:text-sm text-slate-200 mt-1">${activePillar.architecture}</p>
+          </div>
+          <div>
+            <div class="text-xs font-mono uppercase text-slate-400 mb-1.5">Implementation Blueprint Pattern:</div>
+            <pre class="bg-slate-950 border border-slate-800 rounded-xl p-3.5 text-xs font-mono text-cyan-300 overflow-x-auto">${activePillar.codeSnippet}</pre>
+          </div>
+        </div>
+        <div class="pt-4 mt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2">
+          <span class="text-xs text-slate-400">Verified Industry Documentation:</span>
+          <div class="flex flex-wrap gap-2">
+            ${activePillar.links.map(l => `
+              <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-purple-500/15 hover:bg-purple-500/25 text-purple-200 border border-purple-500/30 transition">
+                ${l.label} ↗
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      // Render Prompt Vault
+      promptGrid.innerHTML = PROMPT_VAULT.map(pv => `
+        <div class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col justify-between gap-3">
+          <div>
+            <div class="flex items-center justify-between gap-2">
+              <span class="text-[10px] font-mono uppercase text-amber-300 font-semibold">${pv.badge}</span>
+              <button type="button" data-copy-prompt="${pv.id}" class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/30 transition">
+                Copy Prompt
+              </button>
+            </div>
+            <h4 class="text-sm font-bold text-white mt-1">${pv.title}</h4>
+            <pre class="mt-2.5 bg-slate-950 border border-slate-800/90 rounded-lg p-3 text-[11px] font-mono text-slate-300 whitespace-pre-wrap leading-relaxed">${pv.prompt}</pre>
+          </div>
+        </div>
+      `).join('');
+
+      promptGrid.querySelectorAll('[data-copy-prompt]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.getAttribute('data-copy-prompt');
+          const found = PROMPT_VAULT.find(p => p.id === id);
+          if (found) {
+            copyTextToClipboard(found.prompt, `Copied "${found.title}" prompt!`);
+          }
+        });
+      });
+
+      // Render 8-point audit checklist
+      const checkedCount = Object.values(appState.agenticAuditChecked || {}).filter(Boolean).length;
+      document.getElementById('agenticChecklistScore').textContent = `${checkedCount} / ${AGENTIC_AUDIT_ITEMS.length}`;
+      document.getElementById('agenticChecklistBar').style.width = `${Math.round((checkedCount / AGENTIC_AUDIT_ITEMS.length) * 100)}%`;
+
+      auditGrid.innerHTML = AGENTIC_AUDIT_ITEMS.map(item => {
+        const isDone = Boolean(appState.agenticAuditChecked && appState.agenticAuditChecked[item.id]);
+        return `
+          <label class="flex items-start gap-3 p-3.5 rounded-xl border ${isDone ? 'bg-purple-500/10 border-purple-500/40' : 'bg-slate-900/80 border-slate-800'} cursor-pointer hover:border-purple-400/50 transition">
+            <input type="checkbox" data-audit-id="${item.id}" ${isDone ? 'checked' : ''} class="mt-1 rounded border-slate-600 text-purple-500 focus:ring-purple-500 cursor-pointer" />
+            <div>
+              <div class="text-xs sm:text-sm font-semibold ${isDone ? 'text-purple-200 line-through' : 'text-white'}">${item.title}</div>
+              <p class="text-xs text-slate-400 mt-0.5">${item.desc}</p>
+            </div>
+          </label>
+        `;
+      }).join('');
+
+      auditGrid.querySelectorAll('[data-audit-id]').forEach(chk => {
+        chk.addEventListener('change', () => {
+          const id = chk.getAttribute('data-audit-id');
+          appState.agenticAuditChecked[id] = chk.checked;
+          saveState();
+          renderAgenticTab();
+          renderHeaderAndStats();
+        });
+      });
+    }
+
+    // ============================================================================
+    // 9. RENDER ARCHITECTURES TAB
+    // ============================================================================
+    function renderArchitecturesTab() {
+      const bp = BLUEPRINTS[appState.selectedBlueprint] || BLUEPRINTS.netflix;
+      const nodesContainer = document.getElementById('blueprintNodesContainer');
+      const inspector = document.getElementById('blueprintNodeInspector');
+      if (!nodesContainer || !inspector) return;
+
+      document.querySelectorAll('.blueprint-btn').forEach(btn => {
+        const key = btn.getAttribute('data-blueprint');
+        if (key === appState.selectedBlueprint) {
+          btn.className = 'blueprint-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 transition';
+        } else {
+          btn.className = 'blueprint-btn px-3.5 py-2 rounded-xl text-xs font-semibold bg-slate-900 text-slate-300 border border-slate-700 hover:bg-slate-800 transition';
+        }
+      });
+
+      nodesContainer.innerHTML = bp.nodes.map((node, idx) => {
+        const isSelected = idx === appState.selectedNodeIndex;
+        const cls = isSelected
+          ? 'border-cyan-400 bg-cyan-500/15 shadow-lg shadow-cyan-500/10'
+          : 'border-slate-800 bg-slate-900/80 hover:border-slate-700';
+        return `
+          <button type="button" data-bp-node="${idx}" class="text-left p-3.5 rounded-xl border transition flex flex-col justify-between ${cls}">
+            <div>
+              <div class="text-[10px] font-mono uppercase text-cyan-400 font-semibold">${node.step}</div>
+              <div class="text-sm font-bold text-white mt-1">${node.tech}</div>
+              <p class="text-xs text-slate-400 mt-1 line-clamp-3">${node.role}</p>
+            </div>
+            <div class="mt-3 text-[11px] font-mono text-cyan-300 flex items-center justify-between">
+              <span>${isSelected ? '● Inspecting' : 'Click to inspect'}</span>
+              <span>→</span>
+            </div>
+          </button>
+        `;
+      }).join('');
+
+      nodesContainer.querySelectorAll('[data-bp-node]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          appState.selectedNodeIndex = parseInt(btn.getAttribute('data-bp-node'), 10);
+          renderArchitecturesTab();
+        });
+      });
+
+      const activeNode = bp.nodes[appState.selectedNodeIndex] || bp.nodes[0];
+      inspector.innerHTML = `
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-3 pb-3 border-b border-slate-800">
+          <div>
+            <span class="text-xs font-mono text-cyan-400">${bp.name} — ${activeNode.step}</span>
+            <h4 class="text-base sm:text-lg font-bold text-white mt-0.5">${activeNode.tech}: ${activeNode.role}</h4>
+          </div>
+          <a href="${activeNode.url}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-cyan-500/15 hover:bg-cyan-500/25 text-cyan-300 border border-cyan-500/30 shrink-0 self-start lg:self-auto">
+            Read Official / Engineering Deep-Dive ↗
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+          <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30">
+            <div class="text-xs font-mono uppercase text-amber-300 font-semibold">Real Interview Question for This Layer</div>
+            <p class="text-xs sm:text-sm text-white font-medium mt-1">"${activeNode.interviewQ}"</p>
+          </div>
+          <div class="p-3.5 rounded-xl bg-emerald-500/10 border border-emerald-500/30">
+            <div class="text-xs font-mono uppercase text-emerald-300 font-semibold">Staff-Level Production Answer</div>
+            <p class="text-xs sm:text-sm text-slate-200 mt-1">${activeNode.answer}</p>
+          </div>
+        </div>
+      `;
+    }
+
+    // ============================================================================
+    // 10. RENDER CAPSTONE PROJECTS TAB
+    // ============================================================================
+    function renderProjectsTab() {
+      const grid = document.getElementById('projectsGrid');
+      if (!grid) return;
+
+      grid.innerHTML = CAPSTONE_PROJECTS.map(proj => {
+        const doneCount = proj.milestones.filter(m => appState.projectMilestonesChecked && appState.projectMilestonesChecked[m.id]).length;
+        const pct = Math.round((doneCount / proj.milestones.length) * 100);
+
+        return `
+          <div class="glass-card rounded-2xl p-5 flex flex-col justify-between border border-slate-800">
+            <div class="space-y-3">
+              <div class="flex items-center justify-between gap-2">
+                <span class="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">${proj.tier}</span>
+                <span class="text-xs font-mono font-bold text-emerald-400">${doneCount}/${proj.milestones.length} (${pct}%)</span>
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-white">${proj.title}</h3>
+              <p class="text-xs text-slate-300 leading-relaxed">${proj.summary}</p>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${proj.stack.map(t => `<span class="px-2 py-0.5 text-[11px] font-mono rounded bg-slate-800 text-cyan-300 border border-slate-700">${t}</span>`).join('')}
+              </div>
+              <div class="pt-3 border-t border-slate-800 space-y-2">
+                <div class="text-[11px] font-mono uppercase text-slate-400">Implementation Milestones:</div>
+                ${proj.milestones.map(m => {
+                  const checked = Boolean(appState.projectMilestonesChecked && appState.projectMilestonesChecked[m.id]);
+                  return `
+                    <label class="flex items-start gap-2.5 p-2 rounded-lg bg-slate-900/75 hover:bg-slate-900 border border-slate-800 cursor-pointer transition">
+                      <input type="checkbox" data-proj-milestone="${m.id}" ${checked ? 'checked' : ''} class="mt-0.5 rounded border-slate-600 text-emerald-500 focus:ring-emerald-500 cursor-pointer" />
+                      <span class="text-xs ${checked ? 'line-through text-slate-500' : 'text-slate-200'}">${m.text}</span>
+                    </label>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-slate-800/80">
+              <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-emerald-500 to-cyan-400 transition-all duration-300" style="width: ${pct}%"></div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      grid.querySelectorAll('[data-proj-milestone]').forEach(chk => {
+        chk.addEventListener('change', () => {
+          const id = chk.getAttribute('data-proj-milestone');
+          appState.projectMilestonesChecked[id] = chk.checked;
+          saveState();
+          renderProjectsTab();
+          renderHeaderAndStats();
+          if (chk.checked) showToast('Capstone milestone completed! (+80 XP)', 'emerald');
+        });
+      });
+    }
+
+    // ============================================================================
+    // 11. RENDER ANALYTICS & STUDY VELOCITY PLANNER (CHART.JS)
+    // ============================================================================
+    let radarChartInstance = null;
+    let doughnutChartInstance = null;
+
+    function renderAnalyticsTab() {
+      const m = computeMetrics();
+      const hrsPerWeek = appState.studyHoursPerWeek || 35;
+      document.getElementById('studyHoursLabel').textContent = `${hrsPerWeek} hrs / week`;
+      document.getElementById('analyticsTotalHoursBadge').textContent = `${m.remainingHours} hrs remaining`;
+      document.getElementById('calcRemainingHours').textContent = `${m.remainingHours} hrs`;
+
+      const weeksLeft = m.remainingHours > 0 ? Math.ceil(m.remainingHours / hrsPerWeek) : 0;
+      document.getElementById('calcWeeksLeft').textContent = `${weeksLeft} wks`;
+
+      const targetDate = new Date();
+      targetDate.setDate(targetDate.getDate() + weeksLeft * 7);
+      const formattedDate = weeksLeft === 0
+        ? 'Ready Now!'
+        : targetDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      document.getElementById('calcTargetDate').textContent = formattedDate;
+
+      if (appState.activeTab !== 'analytics' || typeof Chart === 'undefined') return;
+
+      const phaseLabels = PHASES.map(p => p.short + ': ' + p.name.replace(/^Phase \d: /, '').split(' ')[0]);
+      const phaseData = PHASES.map(p => computePhaseProgress(p.id).percent);
+
+      const radarCtx = document.getElementById('domainRadarChart');
+      if (radarCtx) {
+        if (radarChartInstance) radarChartInstance.destroy();
+        radarChartInstance = new Chart(radarCtx, {
+          type: 'radar',
+          data: {
+            labels: phaseLabels,
+            datasets: [
+              {
+                label: 'Current Mastery (%)',
+                data: phaseData,
+                backgroundColor: 'rgba(6, 182, 212, 0.22)',
+                borderColor: '#22d3ee',
+                pointBackgroundColor: '#22d3ee',
+                borderWidth: 2
+              },
+              {
+                label: 'Product-Company Benchmark',
+                data: [85, 85, 85, 80, 80, 80],
+                backgroundColor: 'rgba(168, 85, 247, 0.08)',
+                borderColor: 'rgba(168, 85, 247, 0.5)',
+                borderDash: [4, 4],
+                pointRadius: 0,
+                borderWidth: 1.5
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              r: {
+                min: 0,
+                max: 100,
+                ticks: { stepSize: 25, color: '#94a3b8', backdropColor: 'transparent' },
+                grid: { color: 'rgba(51, 65, 85, 0.6)' },
+                angleLines: { color: 'rgba(51, 65, 85, 0.6)' },
+                pointLabels: { color: '#e2e8f0', font: { size: 11, family: 'Inter' } }
+              }
+            },
+            plugins: {
+              legend: { labels: { color: '#cbd5e1', font: { size: 11 } } }
+            }
+          }
+        });
+      }
+
+      const doughnutCtx = document.getElementById('statusDoughnutChart');
+      if (doughnutCtx) {
+        if (doughnutChartInstance) doughnutChartInstance.destroy();
+        doughnutChartInstance = new Chart(doughnutCtx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Not Started', 'Learning (35%)', 'Built PoC (75%)', 'Mastered (100%)'],
+            datasets: [{
+              data: [m.counts[0], m.counts[1], m.counts[2], m.counts[3]],
+              backgroundColor: ['#334155', '#f59e0b', '#06b6d4', '#10b981'],
+              borderColor: '#0f172a',
+              borderWidth: 2
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '65%',
+            plugins: {
+              legend: { position: 'bottom', labels: { color: '#cbd5e1', padding: 14, font: { size: 11 } } }
+            }
+          }
+        });
+      }
+    }
+
+    function renderAll() {
+      renderHeaderAndStats();
+      renderSprintTab();
+      renderPhaseSummaryCards();
+      renderSkillsList();
+      renderAgenticTab();
+      renderArchitecturesTab();
+      renderProjectsTab();
+      renderAnalyticsTab();
+    }
+
+    // ============================================================================
+    // 12. EVENT LISTENERS & INITIALIZATION
+    // ============================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      loadState();
+
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const targetTab = btn.getAttribute('data-tab');
+          appState.activeTab = targetTab;
+
+          document.querySelectorAll('.nav-tab-btn').forEach(b => {
+            if (b.getAttribute('data-tab') === targetTab) {
+              b.className = 'nav-tab-btn px-3 py-2 rounded-lg text-xs sm:text-sm font-semibold transition whitespace-nowrap flex items-center gap-2 bg-cyan-500/15 text-cyan-300 border border-cyan-500/30';
+            } else {
+              b.className = 'nav-tab-btn px-3 py-2 rounded-lg text-xs sm:text-sm font-medium transition whitespace-nowrap flex items-center gap-2 text-slate-400 hover:text-slate-200 hover:bg-slate-900 border border-transparent';
+            }
+          });
+
+          document.querySelectorAll('.tab-panel').forEach(panel => {
+            if (panel.id === `tab-${targetTab}`) {
+              panel.classList.remove('hidden');
+            } else {
+              panel.classList.add('hidden');
+            }
+          });
+
+          renderAll();
+        });
+      });
+
+      const roleSelect = document.getElementById('roleTrackSelect');
+      roleSelect.value = appState.roleLens || 'all';
+      roleSelect.addEventListener('change', () => {
+        appState.roleLens = roleSelect.value;
+        saveState();
+        renderAll();
+        showToast(`Switched lens to: ${roleSelect.options[roleSelect.selectedIndex].text}`, 'cyan');
+      });
+
+      const searchInput = document.getElementById('skillSearchInput');
+      searchInput.addEventListener('input', () => {
+        appState.searchQuery = searchInput.value;
+        renderSkillsList();
+      });
+
+      const phaseSelect = document.getElementById('phaseFilterSelect');
+      phaseSelect.addEventListener('change', () => {
+        appState.phaseFilter = phaseSelect.value;
+        renderPhaseSummaryCards();
+        renderSkillsList();
+      });
+
+      const statusSelect = document.getElementById('statusFilterSelect');
+      statusSelect.addEventListener('change', () => {
+        appState.statusFilter = statusSelect.value;
+        renderSkillsList();
+      });
+
+      document.getElementById('resetFiltersBtn').addEventListener('click', () => {
+        appState.searchQuery = '';
+        appState.phaseFilter = 'all';
+        appState.statusFilter = 'all';
+        appState.roleLens = 'all';
+        searchInput.value = '';
+        phaseSelect.value = 'all';
+        statusSelect.value = 'all';
+        roleSelect.value = 'all';
+        saveState();
+        renderAll();
+      });
+
+      document.querySelectorAll('.blueprint-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          appState.selectedBlueprint = btn.getAttribute('data-blueprint');
+          appState.selectedNodeIndex = 0;
+          renderArchitecturesTab();
+        });
+      });
+
+      const slider = document.getElementById('studyHoursSlider');
+      slider.value = appState.studyHoursPerWeek || 35;
+      slider.addEventListener('input', () => {
+        appState.studyHoursPerWeek = parseInt(slider.value, 10);
+        saveState();
+        renderAnalyticsTab();
+      });
+
+      const addModal = document.getElementById('addSkillModal');
+      document.getElementById('openAddSkillModalBtn').addEventListener('click', () => {
+        addModal.classList.remove('hidden');
+      });
+      const closeAddModal = () => addModal.classList.add('hidden');
+      document.getElementById('closeAddSkillModalBtn').addEventListener('click', closeAddModal);
+      document.getElementById('cancelAddSkillBtn').addEventListener('click', closeAddModal);
+
+      document.getElementById('addSkillForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const title = document.getElementById('customSkillTitle').value.trim();
+        if (!title) return;
+        const phase = document.getElementById('customSkillPhase').value;
+        const hours = parseInt(document.getElementById('customSkillHours').value, 10) || 15;
+        const why = document.getElementById('customSkillWhy').value.trim() || 'Custom skill added to personal roadmap.';
+        const url = document.getElementById('customSkillUrl').value.trim();
+
+        const newId = 'custom_' + Date.now();
+        const newSkill = {
+          id: newId,
+          phase,
+          title,
+          priority: 'High-Leverage',
+          hours,
+          tracks: ['all', 'aws_sprint', 'faang', 'fintech', 'agentic'],
+          companyContext: 'Custom Roadmap Addition',
+          why,
+          subtasks: ['Study core architecture & official documentation', 'Build working local prototype', 'Document trade-offs for interviews'],
+          milestone: why,
+          links: url ? [{ label: 'Reference Docs', url }] : []
+        };
+        appState.customSkills.push(newSkill);
+        appState.skillProgress[newId] = { status: 0, checkedSubtasks: [false, false, false], notes: '', proofUrl: '', expanded: false };
+        saveState();
+        document.getElementById('addSkillForm').reset();
+        closeAddModal();
+        renderAll();
+        showToast(`Added "${title}" to your roadmap!`, 'emerald');
+      });
+
+      const dataModal = document.getElementById('dataModal');
+      const jsonTextarea = document.getElementById('jsonStateTextarea');
+      document.getElementById('openDataModalBtn').addEventListener('click', () => {
+        jsonTextarea.value = JSON.stringify(appState, null, 2);
+        dataModal.classList.remove('hidden');
+      });
+      document.getElementById('closeDataModalBtn').addEventListener('click', () => {
+        dataModal.classList.add('hidden');
+      });
+
+      document.getElementById('copyJsonBtn').addEventListener('click', () => {
+        copyTextToClipboard(jsonTextarea.value, 'Progress JSON copied to clipboard!');
+      });
+
+      document.getElementById('importJsonBtn').addEventListener('click', () => {
+        try {
+          const parsed = JSON.parse(jsonTextarea.value);
+          if (parsed && typeof parsed === 'object') {
+            appState = Object.assign({}, appState, parsed);
+            saveState();
+            renderAll();
+            dataModal.classList.add('hidden');
+            showToast('Progress restored from JSON!', 'emerald');
+          }
+        } catch (err) {
+          showToast('Invalid JSON format. Please check and try again.', 'cyan');
+        }
+      });
+
+      document.getElementById('resetAllProgressBtn').addEventListener('click', () => {
+        appState.day1Checked = {};
+        appState.weeklySprintChecked = {};
+        appState.skillProgress = {};
+        appState.customSkills = [];
+        appState.agenticAuditChecked = {};
+        appState.projectMilestonesChecked = {};
+        loadState();
+        getAllSkills().forEach(s => {
+          appState.skillProgress[s.id] = {
+            status: 0,
+            checkedSubtasks: (s.subtasks || []).map(() => false),
+            notes: '',
+            proofUrl: '',
+            expanded: false
+          };
+        });
+        saveState();
+        renderAll();
+        dataModal.classList.add('hidden');
+        showToast('All progress reset to 0%.', 'cyan');
+      });
+
+      renderAll();
+    });
+  </script>
+</body>
+</html>
